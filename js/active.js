@@ -185,4 +185,31 @@
         new WOW().init();
     }
 
-})(jQuery);
+})(jQuery);(function ($) {
+    $(function () {
+
+        $('.mapa-svg-provincias').click(function () {
+            $(this).siblings().removeClass('mapa-svg-provincias-active');
+            $(this).addClass('mapa-svg-provincias-active');
+            $('.class-select').val($(this).attr('id')).trigger('change');
+        })
+
+        $('.class-select > option').each(function () {
+            $(this).addClass($(this).attr('value'));
+        });
+
+        $('.class-select').change(function () {
+            $('.' + $(this).val() + '-class').siblings().removeClass('mapa-svg-provincias-active');
+            $('.' + $(this).val() + '-class').addClass('mapa-svg-provincias-active');
+        });
+
+    });
+    })(jQuery);
+
+
+ 
+
+
+
+
+    

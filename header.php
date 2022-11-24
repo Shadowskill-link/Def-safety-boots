@@ -16,19 +16,26 @@
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="custom.css">
+    <link rel="stylesheet" href="https://w3learnpoint.com/cdn/jquery-picZoomer.css">
+    <script type="text/javascript" src="js/jquery/jquery-2.2.4.min.js"></script>
+
+
 
 </head>
 
 <body>
     <!-- Preloader -->
-    <div class="preloader d-flex align-items-center justify-content-center">
-
-        <div class="lds-ellipsis">
-            <img src="img/core-img/DEF-Safety-logo.png">
+   
+    
+        <div class="preloader d-flex align-items-center justify-content-center">
+        <img src="img/core-img/DEF-Safety-logo.png" width="200px" style="position: absolute; top: 40%;">
+            <div class="lds-ellipsis mt-15 ">
             <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
         </div>
     </div>
 
@@ -42,7 +49,8 @@
                     <nav class="classy-navbar justify-content-between" id="pixelNav">
 
                         <!-- Nav brand -->
-                        <a href="index.php" class="nav-brand"><img src="img/core-img/DEF-Safety-logo.png" width="200" alt=""></a>
+                        <a href="index.php" class="nav-brand"><img src="img/core-img/DEF-Safety-logo.png" width="200"
+                                alt=""></a>
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
@@ -89,19 +97,19 @@
                                                 <li><a href="safetyeyes.php">Def Euro Clear</a></li>
                                                 <li><a href="safetyeyes.php">Def Hawk</a></li>
                                             </ul>
-                                            <ul class="single-mega cn-col-3">
-                                                <li><a href="earmuffs.php">EARMUFFS</a></li>
-                                                <li><a href="earmuffs.php">Def Cruz</a></li>
-                                                <li><a href="earmuffs.php">Def XCELZ</a></li>
-                                                <li><a href="earmuffs.php">Def Twinz</a></li>
-                                            </ul>
-                                            <ul class="single-mega cn-col-3">
-                                                <li><a href="earmuffs.php">technical information</a></li>
-                                            </ul>
+                                            <div class="megamenu">
+                                                <ul class="single-mega cn-col-4">
+                                                    <li><a href="earmuffs.php">EARMUFFS</a></li>
+                                                    <li><a href="earmuffs.php">Def 22 DB</a></li>
+                                                    <li><a href="earmuffs.php">Def 27 DB</a></li>
+                                                    <li><a href="earmuffs.php">Def 26 DB</a></li>
+                                                </ul>
+                                                <ul class="single-mega cn-col-4">
+                                                    <li><a href="ppi.php">Other PPI</a></li>
+                                                    <li><a href="earmuffs.php">Technical information</a></li>
+                                                </ul>
+                                            </div>
                                         </div>
-                                    </li>
-                                    <li>
-                                        <a href="ppi.php">Other PPI</a>
                                     </li>
                                     <li><a href="about.php">About</a></li>
                                     <li><a href="contact.php">Contact</a></li>
@@ -109,9 +117,9 @@
 
                                 <!-- Top Social Info -->
                                 <div class="top-social-info ml-5">
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-instagram"></i></a>
-                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                    <input class="input" type="text" placeholder="search.....">
+                                    <a href="#" class="btn-search"><i class="fa fa-search"></i></a>
+                                    <a href="#"><i class="fa fa-shopping-cart"></i></a>
                                 </div>
                             </div>
                             <!-- Nav End -->

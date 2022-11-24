@@ -78,7 +78,16 @@
 
 <!-- ##### All Javascript Script ##### -->
 <!-- jQuery-2.2.4 js -->
-<script src="js/jquery/jquery-2.2.4.min.js"></script>
+<!--<script src="js/jquery/jquery-3.5.1.min.js"></script>-->
+
+ <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha384-JUMjoW8OzDJw4oFpWIB2Bu/c6768ObEthBMVSiIx4ruBIEdyNSUQAjJNFqT5pnJ6" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" src="js/plugins/zoomsl.min.js"></script>
+<script type="text/javascript" src="mapshowhide.js"></script>
+   
+
+
 <!-- Popper js -->
 <script src="js/bootstrap/popper.min.js"></script>
 <!-- Bootstrap js -->
@@ -88,13 +97,14 @@
 <script src="js/owl.carousel.min.js"></script>
 <!-- Active js -->
 <script src="js/active.js"></script>
+<script src="js/zoom.js"></script>
+
 <script type="text/Javascript">
     $('.owl-carousel').owlCarousel({
                 loop: true,
                 margin: 10,
                 nav: true,
-                navText:["PREVIOUS "," NEXT"],
-                autoplay:true,
+               autoplay:true,
                 responsive: {
                     0: {
                         items: 1
