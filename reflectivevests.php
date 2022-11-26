@@ -1,5 +1,6 @@
 <?php
 include_once('header.php');
+include('conecta.php');
 ?>
 <!-- ##### Breadcrumb Area Start ##### -->
 
@@ -19,119 +20,28 @@ include_once('header.php');
 <!-- ##### Services Block Area Start ##### -->
 <section class="services-block-area section-padding-100-0">
     <div class="container">
-        <div class="headlines">
-            
-            <hr>
-            <br>
-        </div>
         <div class="row">
+        <?php $sql ="select * from produtos where categoria_id=2";
+		$query = $dbh->prepare($sql);
+		$query->execute();
+		$results=$query->fetchall(PDO::FETCH_OBJ);
+		$cnt=1;
+		if($query->rowCount() > 0)
+		{
+		foreach($results as $result)
+		{   ?>
             <!-- Single Service Block -->
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="single-service-block mb-50 wow fadeInUp" data-wow-delay="100ms">
-                    <a href="product-detail-reflective.php"><img src="img/reflectivevests/92.png"></a>
-                    <h4 class="mt-15 ">DEF-FOR reflective vests</h4>
-                    <p>2 Tone FORCE jacket</p>
-                    <div class="social-info">
-                        <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-                    </div>
+                    <a href="product-details.php"><img src="img/<?php echo htmlentities($result->imagem_produto);?>"></a>
+                    <h4 class="mt-15"><?php echo htmlentities($result->nome_produto);?></h4>
+                    <p><?php echo htmlentities($result->descricao_produto);?></p>
+                    <a href="safetyboots.php" class="btn buy-btn"><i class="fa fa-shopping-cart mr-15" style="font-size:25px ;"></i> ADD CART</a>
                 </div>
             </div>
-            <!-- Single Service Block -->
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="single-service-block mb-50wow fadeInUp" data-wow-delay="300ms">
-                    <img src="img/reflectivevests/97.png">
-                    <h4 class="mt-15">DEFEXEC-Y/N reflective vests</h4>
-                    <p>2 Tone Multipocket vest</p>
-                    <div class="social-info">
-                        <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-                    </div>
-                </div>
-            </div>
-            <!-- Single Service Block -->
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="single-service-block mb-50 wow fadeInUp" data-wow-delay="500ms">
-                    <img src="img/reflectivevests/96.png">
-                    <h4 class="mt-15">DEFEXEC-Y/G reflective vests</h4>
-                    <p>2 Tone Multipocket vest</p>
-                    <div class="social-info">
-                        <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-                    </div>
-                </div>
-            </div>
+            <?php }} ?>
         </div>
-        <div class="row">
-            <!-- Single Service Block -->
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="single-service-block mb-50 wow fadeInUp" data-wow-delay="500ms">
-                    <img src="img/reflectivevests/100.png">
-                    <h4 class="mt-15 ">DEFEXEC-R/B Reflective vests</h4>
-                    <p>2 Tone Multipocket Vest</p>
-                    <div class="social-info">
-                        <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-                    </div>
-                </div>
-            </div>
-            <!-- Single Service Block -->
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="single-service-block mb-50 wow fadeInUp" data-wow-delay="500ms">
-                    <img src="img/reflectivevests/101.png">
-                   <h4 class="mt-15 ">DEFZIPO Reflective Vests</h4>
-                    <p>120grm Vest with Zip</p>
-                    <div class="social-info">
-                        <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-                    </div>
-                </div>
-            </div>
-            <!-- Single Service Block -->
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="single-service-block mb-50 wow fadeInUp" data-wow-delay="500ms">
-                    <img src="img/reflectivevests/104.png">
-                    <h4 class="mt-15 ">DEFEXEC-O/N Reflective Vests</h4>
-                    <p>2 Tone Multipocket Vest</p>
-                    <div class="social-info">
-                        <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-                    </div>
-                </div>
-            </div>
-            <!-- Single Service Block -->
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="single-service-block mb-50 wow fadeInUp" data-wow-delay="500ms">
-                    <img src="img/reflectivevests/102.png">
-                   <h4 class="mt-15 ">DEF HIVIZWCO</h4>
-                    <p>5 Way Adjustable Vest</p>
-                    <div class="social-info">
-                        <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-                    </div>
-                </div>
-            </div>
-            <!-- Single Service Block -->
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="single-service-block mb-50 wow fadeInUp" data-wow-delay="500ms">
-                    <img src="img/reflectivevests/103.png">
-                    <h4 class="mt-15 ">DEF HIVIZWCL</h4>
-                    <p>5 Way Adjustable Vest</p>
-                    <div class="social-info">
-                        <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
+       
     </div>
 </section>
 <!-- ##### Services Block Area End ##### -->

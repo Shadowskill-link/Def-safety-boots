@@ -1,5 +1,6 @@
 <?php
 include_once('header.php');
+include('conecta.php');
 ?>
 
 <!-- ##### Breadcrumb Area Start ##### -->
@@ -9,7 +10,7 @@ include_once('header.php');
       <div class="col-12">
 
         <div class="breadcrumb-content mt-70">
-          <h2>Product-detailS</h2>
+          <h2>Product-details</h2>
         </div>
       </div>
     </div>
@@ -18,6 +19,19 @@ include_once('header.php');
 </section>
 <!-- ##### Breadcrumb Area End ##### -->
 
+<?php 
+            $pid=intval($_GET['pkgid']);
+            $sql = "select * from produtos where id_produto=:pid";
+            $query = $dbh->prepare($sql);
+            $query -> bindParam(':pid', $pid, PDO::PARAM_STR);
+            $query->execute();
+            $results=$query->fetchAll(PDO::FETCH_OBJ);
+            $cnt=1;
+            if($query->rowCount() > 0)
+            {
+            foreach($results as $result)
+            {	?>
+
 <section class="safety-boots section-padding-100" ;>
   <div class="container">
     <div class="card">
@@ -25,17 +39,18 @@ include_once('header.php');
         <aside class="col-sm-5 border-right">
           <article class="gallery-wrap">
             <div class="img-big-wrap">
-              <div> <a href="#"><img class="img-big-wrap ml-15" src="img/boots/52.png" id="trocarimg"></a></div>
+              <div> <a href="#"><img class="img-big-wrap ml-15" src="img/<?php echo htmlentities($result->imagem_produto);?>" id="trocarimg"></a></div>
             </div> <!-- slider-product.// -->
+            
             <div class="img-small-wrap">
               <div class="item-gallery"> 
-              <a><img src="img/boots/52.png" onmouseover="img01();"></a>
+              <a><img src="img/<?php echo htmlentities($result->imagem_produto);?>" onmouseover="img01();"></a>
                 </div>
               <div class="item-gallery"> 
-              <a><img src="img/boots/51.png" onmouseover="img02();"></a>
+              <a><img src="img/<?php echo htmlentities($result->imagem_produto_baixo);?>" onmouseover="img02();"></a>
                </div>
               <div class="item-gallery"> 
-              <a><img src="img/boots/48.png" onmouseover="img03();"></a>
+              <a><img src="img/<?php echo htmlentities($result->imagem_produto_frente);?>" onmouseover="img03();"></a>
                </div>
               
             </div> <!-- slider-nav.// -->
@@ -43,7 +58,7 @@ include_once('header.php');
         </aside>
         <aside class="col-sm-7">
           <article class="card-body p-5">
-            <h3 class="title mb-3">DEF Forte Brown</h3>
+            <h3 class="title mb-3"><?php echo htmlentities($result->nome_produto);?></h3>
 
             <p class="price-detail-wrap">
               <span class="price h3 text-warning">
@@ -54,9 +69,7 @@ include_once('header.php');
             <dl class="item-property">
               <dt>Description</dt>
               <dd>
-                <p>Here goes description consectetur adipisicing elit, sed do eiusmod
-                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                  quis nostrud exercitation ullamco </p>
+                <p><?php echo htmlentities($result->detalhes_produto);?></p>
               </dd>
             </dl>
             <dl class="param param-feature">
@@ -115,13 +128,14 @@ include_once('header.php');
     </div> <!-- card.// -->
   </div>
 </section>
+<?php }} ?>
 <section class="info-hero2 ">
     <div class="container">
         <h3 class="wow fadeInUp text-left" data-wow-delay="400ms">Some realeted products </h3>
         <div class=" section-padding-100-0"></div>
         <div class="owl-carousel owl-theme container">
             <div class="item">
-                <a href="boots.php"><img src="img/boots/48.png" alt=""></a>
+                <a href="boots.php"><img src="img/48.png" alt=""></a>
                 <p class="text-muted mt-15">Lorem ipsum dolor sit amet consectetur</p>
             </div>
             <div class="item">
@@ -162,13 +176,13 @@ include_once('header.php');
 </section>
 <script>
 function img01(){
-    document.getElementById("trocarimg").src="img/boots/52.png"
+    document.getElementById("trocarimg").src="img/<?php echo htmlentities($result->imagem_produto);?>"
 }
 function img02(){
-    document.getElementById("trocarimg").src="img/boots/51.png"
+    document.getElementById("trocarimg").src="img/<?php echo htmlentities($result->imagem_produto_baixo);?>"
 }
 function img03(){
-    document.getElementById("trocarimg").src="img/boots/48.png"
+    document.getElementById("trocarimg").src="img/<?php echo htmlentities($result->imagem_produto_frente);?>"
 }
 </script>
 

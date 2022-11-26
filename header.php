@@ -70,7 +70,7 @@
                                 <ul>
                                     <li><a href="index.php">Home</a></li>
                                     <li><a href="#">explore def & technical information</a>
-                                        <div class="megamenu">
+                                        <div class="megamenu" style="border-bottom: none;">
                                             <ul class="single-mega cn-col-4">
                                                 <li><a href="boots.php">SAFETY BOOTS</a></li>
                                                 <li><a href="boots.php">S3 Safety Boot</a></li>
@@ -97,7 +97,7 @@
                                                 <li><a href="safetyeyes.php">Def Euro Clear</a></li>
                                                 <li><a href="safetyeyes.php">Def Hawk</a></li>
                                             </ul>
-                                            <div class="megamenu">
+                                            <div class="megamenu" >
                                                 <ul class="single-mega cn-col-4">
                                                     <li><a href="earmuffs.php">EARMUFFS</a></li>
                                                     <li><a href="earmuffs.php">Def 22 DB</a></li>

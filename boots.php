@@ -1,5 +1,6 @@
 <?php
-include_once('header.php')
+include_once('header.php');
+include('conecta.php');
 ?>
 <!-- ##### Breadcrumb Area Start ##### -->
 <section class="breadcrumb-area bg-img bg-overlay" style="background-image: url(img/bg-img/60.png); top: 50%">
@@ -21,66 +22,29 @@ include_once('header.php')
 <!-- ##### Services Block Area Start ##### -->
 <section class="services-block-area section-padding-100-0">
     <div class="container">
-        
         <div class="row">
+        <?php $sql ="select * from produtos limit 5";
+		$query = $dbh->prepare($sql);
+		$query->execute();
+		$results=$query->fetchall(PDO::FETCH_OBJ);
+		$cnt=1;
+		if($query->rowCount() > 0)
+		{
+		foreach($results as $result)
+		{   ?>
             <!-- Single Service Block -->
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="single-service-block mb-50 wow fadeInUp" data-wow-delay="100ms">
-                    <a href="product-details.php"><img src="img/boots/52.png"></a>
-                    <h4 class="mt-15">DEF Forte Brown</h4>
-                    <p>CODE:B700160 S3 Safety Boot.</p>
+                  
+                    <a href="product-details.php?pkgid=<?php echo htmlentities($result->id_produto);?>"><img src="img/<?php echo htmlentities($result->imagem_produto);?>"></a>
+                    <h4 class="mt-15"><?php echo htmlentities($result->nome_produto);?></h4>
+                    <p><?php echo htmlentities($result->descricao_produto);?></p>
                     <a href="safetyboots.php" class="btn buy-btn"><i class="fa fa-shopping-cart mr-15" style="font-size:25px ;"></i> ADD CART</a>
                 </div>
             </div>
-            <!-- Single Service Block -->
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="single-service-block mb-50wow fadeInUp" data-wow-delay="300ms">
-                    <img src="img/boots/48.png">
-                    <h4 class="mt-15">DEF chelsea</h4>
-                    <p>CODE:DE-7500 S2 Safety Boot </p>
-                    <a href="safetyboots.php" class="btn buy-btn"><i class="fa fa-shopping-cart mr-15" style="font-size:25px ;"></i> ADD CART</a>
-                </div>
-            </div>
-            <!-- Single Service Block -->
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="single-service-block mb-50 wow fadeInUp" data-wow-delay="500ms">
-                    <img src="img/boots/IMG_1499.png">
-                    <h4 class="mt-15">DEF TEC</h4>
-                    <p>CODE:DE-8500 S3 Safety Boot <br> 3M THINSULATE</p>
-                    <a href="safetyboots.php" class="btn buy-btn"><i class="fa fa-shopping-cart mr-15" style="font-size:25px ;"></i> ADD CART</a>
-                </div>
-            </div>
+            <?php }} ?>
         </div>
-        <div class="row">
-            <!-- Single Service Block -->
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="single-service-block mb-50 wow fadeInUp" data-wow-delay="500ms">
-                    <img src="img/boots/51.png">
-                    <h4 class="mt-15">DEF FORTE</h4>
-                    <p>CODE:DE-6550 S3 Safety Boot</p>
-                    <a href="safetyboots.php" class="btn buy-btn"><i class="fa fa-shopping-cart mr-15" style="font-size:25px ;"></i> ADD CART</a>
-                </div>
-            </div>
-            <!-- Single Service Block -->
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="single-service-block mb-50 wow fadeInUp" data-wow-delay="500ms">
-                    <img src="img/boots/50.png">
-                    <h4 class="mt-15">DEF BASIX</h4>
-                    <p>CODE:B700160 S3 Safety Boot</p>
-                    <a href="safetyboots.php" class="btn buy-btn"><i class="fa fa-shopping-cart mr-15" style="font-size:25px ;"></i> ADD CART</a>
-                </div>
-            </div>
-            <!-- Single Service Block-->
-
-            <!---<div class="col-12 col-md-6 col-lg-4">
-                <div class="single-service-block mb-50 wow fadeInUp" data-wow-delay="500ms">
-                    <img src="img/bg-img/56.png">
-                    <h4 class="mt-15">DEF FORTE</h4>
-                    <p>CODE:DE-6550 S3 Safety Boot</p>
-                    
-                </div>
-            </div>-->
-        </div>
+       
     </div>
 </section>
 <!-- ##### Services Block Area End ##### -->
