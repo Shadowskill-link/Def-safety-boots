@@ -1,5 +1,8 @@
 <?php
+session_start();
 include_once('header.php');
+include('conecta.php');
+
 ?>
 <!-- ##### Hero Area Start ##### -->
 <section class="hero-area" id="hero-area">
@@ -64,44 +67,22 @@ include_once('header.php');
         <h2 class="text-center wow fadeInUp" data-wow-delay="400ms">Some featured products </h2>
         <div class=" section-padding-100-0"></div>
         <div class="owl-carousel owl-theme container">
+        <?php $sql ="select * from produtos  ORDER BY RAND() limit 30";
+		$query = $dbh->prepare($sql);
+		$query->execute();
+		$results=$query->fetchall(PDO::FETCH_OBJ);
+		$cnt=1;
+		if($query->rowCount() > 0)
+		{
+		foreach($results as $result)
+		{   ?>
             <div class="item">
-                <a href="boots.php"><img src="img/boots/48.png" alt=""></a>
-                <p class="text-muted mt-15">Lorem ipsum dolor sit amet consectetur</p>
+                <a href="product-details.php?pkgid=<?php echo htmlentities($result->id_produto);?>"><img src="img/<?php echo htmlentities($result->imagem_produto);?>" alt=""></a>
+                <h4 class="text-muted mt-15"><?php echo htmlentities($result->nome_produto);?></h4>
             </div>
-            <div class="item">
-                <a href=""><img src="img/reflectivevests/96.png" class="" alt=""></a>
-                <p class="text-muted mt-15">Lorem ipsum dolor sit amet consectetur</p>
-            </div>
-            <div class="item">
-                <a href=""><img src="img/PPI/45(1423).png" class="" alt=""></a>
-                <p class="text-muted mt-15">Lorem ipsum dolor sit amet consectetur</p>
-            </div>
-            <div class="item">
-                <a href=""><img src="img/Gloves/81.png" class="" alt=""></a>
-                <p class="text-muted mt-15">Lorem ipsum dolor sit amet consectetur</p>
-            </div>
-            <div class="item">
-                <a href=""><img src="img/eyesafety/14.png" class="" alt=""></a>
-                <p class="text-muted mt-15">Lorem ipsum dolor sit amet consectetur</p>
-            </div>
-            <div class="item">
-                <a href=""><img src="img/PPI/39.png" class="" alt=""></a>
-                <p class="text-muted mt-15">Lorem ipsum dolor sit amet consectetur</p>
-            </div>
-            <div class="item">
-                <a href=""><img src="img/PPI/32.png" class="" alt=""></a>
-                <p class="text-muted mt-15">Lorem ipsum dolor sit amet consectetur</p>
-            </div>
-            <div class="item">
-                <a href=""><img src="img/PPI/38.png" class=" " alt=""></a>
-                <p class="text-muted mt-15">Lorem ipsum dolor sit amet consectetur</p>
-
-            </div>
-            <div class="item">
-                <a href=""><img src="img/earmuffs/3.png" class="" alt=""></a>
-                <p class="text-muted mt-15">Lorem ipsum dolor sit amet consectetur</p>
-            </div>
+            <?php }} ?>
         </div>
+      
     </div>
 </section>
 

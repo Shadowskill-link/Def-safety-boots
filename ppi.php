@@ -1,14 +1,15 @@
 <?php
 include_once('header.php');
+include('conecta.php')
 ?>
 
 <!-- ##### Breadcrumb Area Start ##### -->
-<section class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url(img/bg-img/60.png);">
+<section class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url(img/bg-img/108.png);">
     <div class="container-fluid h-100">
         <div class="row h-100 align-items-center">
             <div class="col-12">
                 <div class="breadcrumb-content">
-                    <h2>Other ppi</h2>
+                    <h2>Other protective Equipment</h2>
                 </div>
             </div>
         </div>
@@ -19,93 +20,32 @@ include_once('header.php');
 <!-- ##### Services Block Area Start ##### -->
 <section class="services-block-area section-padding-100-0">
     <div class="container">
-        <div class="headlines">
-            <h1 class="font-bold text-center" style="font-size: 48px; color: #006;">Other PPI</h1>
-            <hr>
-            <br>
-        </div>
         <div class="row">
+        <?php $sql ="select * from produtos where categoria_id=6";
+		$query = $dbh->prepare($sql);
+		$query->execute();
+		$results=$query->fetchall(PDO::FETCH_OBJ);
+		$cnt=1;
+		if($query->rowCount() > 0)
+		{
+		foreach($results as $result)
+		{   ?>
             <!-- Single Service Block -->
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="single-service-block mb-50 wow fadeInUp" data-wow-delay="100ms">
-                    <a href="product-detail-freezerjacket.php"><img src="img/ppi/24.png"></a>
-                    <h4 class="mt-15">DEF Forte Brown</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                  
+                    <a href="product-details.php?pkgid=<?php echo htmlentities($result->id_produto);?>"><img src="img/<?php echo htmlentities($result->imagem_produto);?>"></a>
+                    <h4 class="mt-15"><?php echo htmlentities($result->nome_produto);?></h4>
+                    <p><?php echo htmlentities($result->descricao_produto);?></p>
+                    <a href="safetyboots.php" class="btn buy-btn"><i class="fa fa-shopping-cart mr-15" style="font-size:25px ;"></i> ADD CART</a>
                 </div>
             </div>
-            <!-- Single Service Block -->
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="single-service-block mb-50wow fadeInUp" data-wow-delay="300ms">
-                    <img src="img/ppi/25.png">
-                    <h4 class="mt-15 ">DEF chelsea</h4>
-                    <p>CODE:DE-7500 S2 Safety Boot </p>
-                  
-                </div>
-            </div>
-            <!-- Single Service Block -->
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="single-service-block mb-50 wow fadeInUp" data-wow-delay="500ms">
-                    <img src="img/ppi/32.png">
-                    <h4 class="mt-15 ">DEF TEC</h4>
-                    <p>CODE:DE-8500 S3 Safety Boot 3M THINSULATE</p>
-                  
-                </div>
-            </div>
-            <div class="row">
-                <!-- Single Service Block -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-service-block mb-50 wow fadeInUp" data-wow-delay="500ms">
-                        <img src="img/ppi/35.png">
-                        <h4 class="mt-15 ">DEF TEC</h4>
-                        <p>CODE:DE-8500 S3 Safety Boot 3M THINSULATE</p>
-                      
-                    </div>
-                </div>
-                <!-- Single Service Block -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-service-block mb-50 wow fadeInUp" data-wow-delay="500ms">
-                        <img src="img/ppi/36.png">
-                       <h4 class="mt-15 ">DEF TEC</h4>
-                        <p>CODE:DE-8500 S3 Safety Boot 3M THINSULATE</p>
-                      
-                    </div>
-                </div>
-                <!-- Single Service Block -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-service-block mb-50 wow fadeInUp" data-wow-delay="500ms">
-                        <img src="img/ppi/39.png">
-                       <h4 class="mt-15 ">DEF TEC</h4>
-                        <p>CODE:DE-8500 S3 Safety Boot 3M THINSULATE</p>
-                      
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                 <!-- Single Service Block -->
-                 <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-service-block mb-50 wow fadeInUp" data-wow-delay="500ms">
-                        <img src="img/ppi/40.png">
-                       <h4 class="mt-15 ">DEF TEC</h4>
-                        <p>CODE:DE-8500 S3 Safety Boot 3M THINSULATE</p>
-                      
-                    </div>
-                </div>
-                 <!-- Single Service Block -->
-                 <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-service-block mb-50 wow fadeInUp" data-wow-delay="500ms">
-                        <img src="img/ppi/45(1423).png">
-                        <h4 class="mt-15 ">DEF TEC</h4>
-                        <p>CODE:DE-8500 S3 Safety Boot 3M THINSULATE</p>
-                      
-                    </div>
-                </div>
-            </div>
+            <?php }} ?>
         </div>
-    </div>
+       
     </div>
 </section>
 <!-- ##### Services Block Area End ##### -->
+
 
 <?php
 include_once('footer.php');

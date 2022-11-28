@@ -19,18 +19,16 @@ include('conecta.php');
 </section>
 <!-- ##### Breadcrumb Area End ##### -->
 
-<?php 
-            $pid=intval($_GET['pkgid']);
-            $sql = "select * from produtos where id_produto=:pid";
-            $query = $dbh->prepare($sql);
-            $query -> bindParam(':pid', $pid, PDO::PARAM_STR);
-            $query->execute();
-            $results=$query->fetchAll(PDO::FETCH_OBJ);
-            $cnt=1;
-            if($query->rowCount() > 0)
-            {
-            foreach($results as $result)
-            {	?>
+<?php
+$pid = intval($_GET['pkgid']);
+$sql = "select * from produtos where id_produto=:pid";
+$query = $dbh->prepare($sql);
+$query->bindParam(':pid', $pid, PDO::PARAM_STR);
+$query->execute();
+$results = $query->fetchAll(PDO::FETCH_OBJ);
+$cnt = 1;
+if ($query->rowCount() > 0) {
+  foreach ($results as $result) { ?>
 
 <section class="safety-boots section-padding-100" ;>
   <div class="container">
@@ -39,26 +37,29 @@ include('conecta.php');
         <aside class="col-sm-5 border-right">
           <article class="gallery-wrap">
             <div class="img-big-wrap">
-              <div> <a href="#"><img class="img-big-wrap ml-15" src="img/<?php echo htmlentities($result->imagem_produto);?>" id="trocarimg"></a></div>
+              <div> <a href="#"><img class="img-big-wrap ml-15"
+                    src="img/<?php echo htmlentities($result->imagem_produto); ?>" id="trocarimg"></a></div>
             </div> <!-- slider-product.// -->
-            
+
             <div class="img-small-wrap">
-              <div class="item-gallery"> 
-              <a><img src="img/<?php echo htmlentities($result->imagem_produto);?>" onmouseover="img01();"></a>
-                </div>
-              <div class="item-gallery"> 
-              <a><img src="img/<?php echo htmlentities($result->imagem_produto_baixo);?>" onmouseover="img02();"></a>
-               </div>
-              <div class="item-gallery"> 
-              <a><img src="img/<?php echo htmlentities($result->imagem_produto_frente);?>" onmouseover="img03();"></a>
-               </div>
-              
+              <div class="item-gallery">
+                <a><img src="img/<?php echo htmlentities($result->imagem_produto); ?>" onmouseover="img01();"></a>
+              </div>
+              <div class="item-gallery">
+                <a><img src="img/<?php echo htmlentities($result->imagem_produto_baixo); ?>" onmouseover="img02();"></a>
+              </div>
+              <div class="item-gallery">
+                <a><img src="img/<?php echo htmlentities($result->imagem_produto_frente); ?>" onmouseover="img03();"></a>
+              </div>
+
             </div> <!-- slider-nav.// -->
           </article> <!-- gallery-wrap .end// -->
         </aside>
         <aside class="col-sm-7">
           <article class="card-body p-5">
-            <h3 class="title mb-3"><?php echo htmlentities($result->nome_produto);?></h3>
+            <h3 class="title mb-3">
+              <?php echo htmlentities($result->nome_produto); ?>
+            </h3>
 
             <p class="price-detail-wrap">
               <span class="price h3 text-warning">
@@ -69,7 +70,9 @@ include('conecta.php');
             <dl class="item-property">
               <dt>Description</dt>
               <dd>
-                <p><?php echo htmlentities($result->detalhes_produto);?></p>
+                <p>
+                  <?php echo htmlentities($result->detalhes_produto); ?>
+                </p>
               </dd>
             </dl>
             <dl class="param param-feature">
@@ -118,7 +121,7 @@ include('conecta.php');
               </div> <!-- col.// -->
             </div> <!-- row.// -->
             <hr>
-            <a href="#" class="btn pixel2-btn"><i class="fa fa-file-pdf-o"></i> download spect
+            <a href="#" class="btn pixel2-btn"><i class="fa fa-file-pdf-o"></i> download spec
             </a>
             <a href="#" class="btn btn-outline pixel2-btn"> <i class="fa fa-shopping-cart"></i> Add
               to cart </a>
@@ -128,62 +131,44 @@ include('conecta.php');
     </div> <!-- card.// -->
   </div>
 </section>
-<?php }} ?>
-<section class="info-hero2 ">
-    <div class="container">
-        <h3 class="wow fadeInUp text-left" data-wow-delay="400ms">Some realeted products </h3>
-        <div class=" section-padding-100-0"></div>
-        <div class="owl-carousel owl-theme container">
-            <div class="item">
-                <a href="boots.php"><img src="img/48.png" alt=""></a>
-                <p class="text-muted mt-15">Lorem ipsum dolor sit amet consectetur</p>
-            </div>
-            <div class="item">
-                <a href=""><img src="img/reflectivevests/96.png" class="" alt=""></a>
-                <p class="text-muted mt-15">Lorem ipsum dolor sit amet consectetur</p>
-            </div>
-            <div class="item">
-                <a href=""><img src="img/PPI/45(1423).png" class="" alt=""></a>
-                <p class="text-muted mt-15">Lorem ipsum dolor sit amet consectetur</p>
-            </div>
-            <div class="item">
-                <a href=""><img src="img/Gloves/81.png" class="" alt=""></a>
-                <p class="text-muted mt-15">Lorem ipsum dolor sit amet consectetur</p>
-            </div>
-            <div class="item">
-                <a href=""><img src="img/eyesafety/14.png" class="" alt=""></a>
-                <p class="text-muted mt-15">Lorem ipsum dolor sit amet consectetur</p>
-            </div>
-            <div class="item">
-                <a href=""><img src="img/PPI/39.png" class="" alt=""></a>
-                <p class="text-muted mt-15">Lorem ipsum dolor sit amet consectetur</p>
-            </div>
-            <div class="item">
-                <a href=""><img src="img/PPI/32.png" class="" alt=""></a>
-                <p class="text-muted mt-15">Lorem ipsum dolor sit amet consectetur</p>
-            </div>
-            <div class="item">
-                <a href=""><img src="img/PPI/38.png" class=" " alt=""></a>
-                <p class="text-muted mt-15">Lorem ipsum dolor sit amet consectetur</p>
+<?php }
+} ?>
 
-            </div>
-            <div class="item">
-                <a href=""><img src="img/earmuffs/3.png" class="" alt=""></a>
-                <p class="text-muted mt-15">Lorem ipsum dolor sit amet consectetur</p>
-            </div>
-        </div>
+<section class="info-hero2 ">
+  <div class="container">
+    <h3 class="wow fadeInUp text-left" data-wow-delay="400ms">Some realeted products </h3>
+    <div class=" section-padding-100-0"></div>
+    <div class="owl-carousel owl-theme container">
+      <?php $sql = "select * from produtos  ORDER BY RAND() limit 30";
+           $query = $dbh->prepare($sql);
+           $query->execute();
+           $results = $query->fetchall(PDO::FETCH_OBJ);
+           $cnt = 1;
+           if ($query->rowCount() > 0) {
+             foreach ($results as $result) { ?>
+      <div class="item">
+        <a href="product-details.php?pkgid=<?php echo htmlentities($result->id_produto); ?>"><img
+            src="img/<?php echo htmlentities($result->imagem_produto); ?>" alt=""></a>
+        <h4 class="text-muted mt-15">
+          <?php echo htmlentities($result->nome_produto); ?>
+        </h4>
+      </div>
+      <?php }
+           } ?>
+
     </div>
+  </div>
 </section>
 <script>
-function img01(){
-    document.getElementById("trocarimg").src="img/<?php echo htmlentities($result->imagem_produto);?>"
-}
-function img02(){
-    document.getElementById("trocarimg").src="img/<?php echo htmlentities($result->imagem_produto_baixo);?>"
-}
-function img03(){
-    document.getElementById("trocarimg").src="img/<?php echo htmlentities($result->imagem_produto_frente);?>"
-}
+  function img01() {
+    document.getElementById("trocarimg").src = "img/<?php echo htmlentities($result->imagem_produto); ?>"
+  }
+  function img02() {
+    document.getElementById("trocarimg").src = "img/<?php echo htmlentities($result->imagem_produto_baixo); ?>"
+  }
+  function img03() {
+    document.getElementById("trocarimg").src = "img/<?php echo htmlentities($result->imagem_produto_frente); ?>"
+  }
 </script>
 
 
