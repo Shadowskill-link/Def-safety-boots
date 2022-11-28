@@ -7,7 +7,7 @@ include('conecta.php');
 <!-- ##### Hero Area Start ##### -->
 <section class="hero-area" id="hero-area">
     <div class="hero-slideshow owl-carousel">
-
+ 
         <!-- Single Slide -->
         <div class="single-slide">
             <!-- Background Image-->

@@ -1,6 +1,32 @@
 <?php
+session_start();
 include_once('header.php');
 include('conecta.php');
+session_destroy();
+
+$produto_ids = array();
+
+if(filter_input(INPUT_POST, 'add_to_cart')){
+  if(isset($_SESSION['shopping_cart'])){
+    $count = count($_SESSION['shopping_cart']);
+    $produto_ids = array_column($_SESSION['shopping_cart'], 'id_produto');
+  }
+  else{
+    $_SESSION['shopping_cart'][0] = array
+    (
+      'id_produto' => filter_input(INPUT_GET, 'id_produto'),
+      'nome_produto' => filter_input(INPUT_POST, 'nome_produto'),
+      'quantidade_produto' => filter_input(INPUT_POST, 'quantidade_produto'),
+    );
+  }
+}
+print_r($_SESSION);
+function pre_r($array){
+  echo '<pre>';
+  print_r($array);
+  echo '</pre>';
+}
+
 ?>
 
 <!-- ##### Breadcrumb Area Start ##### -->
@@ -32,9 +58,12 @@ if ($query->rowCount() > 0) {
 
 <section class="safety-boots section-padding-100" ;>
   <div class="container">
+  <form method="POST" action="addcart.php?action=add&id=<?php echo htmlentities($result->id_produto); ?>">
     <div class="card">
       <div class="row">
+      
         <aside class="col-sm-5 border-right">
+          
           <article class="gallery-wrap">
             <div class="img-big-wrap">
               <div> <a href="#"><img class="img-big-wrap ml-15"
@@ -48,25 +77,15 @@ if ($query->rowCount() > 0) {
               <div class="item-gallery">
                 <a><img src="img/<?php echo htmlentities($result->imagem_produto_baixo); ?>" onmouseover="img02();"></a>
               </div>
-              <div class="item-gallery">
-                <a><img src="img/<?php echo htmlentities($result->imagem_produto_frente); ?>" onmouseover="img03();"></a>
-              </div>
-
             </div> <!-- slider-nav.// -->
           </article> <!-- gallery-wrap .end// -->
         </aside>
         <aside class="col-sm-7">
           <article class="card-body p-5">
-            <h3 class="title mb-3">
+            <h3 class="title mb-3" style="color: #006; font-weight: bold ;" >
               <?php echo htmlentities($result->nome_produto); ?>
             </h3>
 
-            <p class="price-detail-wrap">
-              <span class="price h3 text-warning">
-                <span class="currency">US $</span><span class="num">1299</span>
-              </span>
-
-            </p> <!-- price-detail-wrap .// -->
             <dl class="item-property">
               <dt>Description</dt>
               <dd>
@@ -77,7 +96,7 @@ if ($query->rowCount() > 0) {
             </dl>
             <dl class="param param-feature">
               <dt>Model#</dt>
-              <dd>12345611</dd>
+              <dd style="color: #006; font-weight: bold ;"><?php echo htmlentities($result->descricao_produto); ?></dd>
             </dl> <!-- item-property-hor .// -->
             <dl class="param param-feature">
               <dt>Color</dt>
@@ -89,11 +108,7 @@ if ($query->rowCount() > 0) {
                 <dl class="param param-inline">
                   <dt>Quantity: </dt>
                   <dd>
-                    <select class="form-control form-control-sm" style="width:70px;">
-                      <option> 1 </option>
-                      <option> 2 </option>
-                      <option> 3 </option>
-                    </select>
+                    <input type="number" class="form-control" name="quantidade_produto" value="1" width="150">
                   </dd>
                 </dl> <!-- item-property .// -->
               </div> <!-- col.// -->
@@ -116,6 +131,10 @@ if ($query->rowCount() > 0) {
                         value="option2">
                       <span class="form-check-label">XXL</span>
                     </label>
+                    <input type="hidden" name="id_produto" value="<?php echo htmlentities($result->id_produto); ?>">
+                    <input type="hidden" name="nome_produto" value="<?php echo htmlentities($result->nome_produto); ?>">
+                    <input type="hidden" name="imagem_produto" value="<?php echo htmlentities($result->imagem_produto); ?>">
+                    <input type="hidden" name="quantidade" value="<?php echo htmlentities($result->quantidade_produto); ?>">
                   </dd>
                 </dl> <!-- item-property .// -->
               </div> <!-- col.// -->
@@ -123,56 +142,30 @@ if ($query->rowCount() > 0) {
             <hr>
             <a href="#" class="btn pixel2-btn"><i class="fa fa-file-pdf-o"></i> download spec
             </a>
-            <a href="#" class="btn btn-outline pixel2-btn"> <i class="fa fa-shopping-cart"></i> Add
-              to cart </a>
+            <input class="btn btn-outline pixel2-btn" type="submit" name="add_to_cart" value="add to cart"> 
           </article> <!-- card-body.// -->
         </aside> <!-- col.// -->
+     
       </div> <!-- row.// -->
     </div> <!-- card.// -->
+  </form>
   </div>
-</section>
-<?php }
+  <?php }
 } ?>
-
-<section class="info-hero2 ">
-  <div class="container">
-    <h3 class="wow fadeInUp text-left" data-wow-delay="400ms">Some realeted products </h3>
-    <div class=" section-padding-100-0"></div>
-    <div class="owl-carousel owl-theme container">
-      <?php $sql = "select * from produtos  ORDER BY RAND() limit 30";
-           $query = $dbh->prepare($sql);
-           $query->execute();
-           $results = $query->fetchall(PDO::FETCH_OBJ);
-           $cnt = 1;
-           if ($query->rowCount() > 0) {
-             foreach ($results as $result) { ?>
-      <div class="item">
-        <a href="product-details.php?pkgid=<?php echo htmlentities($result->id_produto); ?>"><img
-            src="img/<?php echo htmlentities($result->imagem_produto); ?>" alt=""></a>
-        <h4 class="text-muted mt-15">
-          <?php echo htmlentities($result->nome_produto); ?>
-        </h4>
-      </div>
-      <?php }
-           } ?>
-
-    </div>
-  </div>
 </section>
-<script>
-  function img01() {
-    document.getElementById("trocarimg").src = "img/<?php echo htmlentities($result->imagem_produto); ?>"
-  }
-  function img02() {
-    document.getElementById("trocarimg").src = "img/<?php echo htmlentities($result->imagem_produto_baixo); ?>"
-  }
-  function img03() {
-    document.getElementById("trocarimg").src = "img/<?php echo htmlentities($result->imagem_produto_frente); ?>"
-  }
+
+<script type="text/javascript">
+        function img01(){
+            document.getElementById("trocarimg").src="img/<?php echo htmlentities($result->imagem_produto);?>";
+        }
+        function img02(){
+            document.getElementById("trocarimg").src="img/<?php echo htmlentities($result->imagem_produto_baixo); ?>";
+        }
+      
 </script>
 
 
-
 <?php
+include_once('related.php');
 include_once('footer.php');
 ?>

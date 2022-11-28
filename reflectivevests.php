@@ -1,9 +1,9 @@
 <?php
+session_start();
 include_once('header.php');
 include('conecta.php');
 ?>
 <!-- ##### Breadcrumb Area Start ##### -->
-
 <section class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url(img/banner/reflective.png);">
     <div class="container-fluid h-100">
         <div class="row h-100 align-items-center">
@@ -33,7 +33,7 @@ include('conecta.php');
             <!-- Single Service Block -->
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="single-service-block mb-50 wow fadeInUp" data-wow-delay="100ms">
-                    <a href="product-details.php"><img src="img/<?php echo htmlentities($result->imagem_produto);?>"></a>
+                    <a href="product-details.php?pkgid=<?php echo htmlentities($result->id_produto);?>"><img src="img/<?php echo htmlentities($result->imagem_produto);?>"></a>
                     <h4 class="mt-15"><?php echo htmlentities($result->nome_produto);?></h4>
                     <p><?php echo htmlentities($result->descricao_produto);?></p>
                     <a href="safetyboots.php" class="btn buy-btn"><i class="fa fa-shopping-cart mr-15" style="font-size:25px ;"></i> ADD CART</a>

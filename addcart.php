@@ -1,17 +1,50 @@
 <?php
-include_once("header.php");
-?>
+session_start();
+include_once('header.php');
+include('conecta.php');
+//session_destroy();
 
+$produto_ids = array();
+
+if(filter_input(INPUT_POST, 'add_to_cart')){
+  if(isset($_SESSION['shopping_cart'])){
+    
+    $count = count($_SESSION['shopping_cart']);
+
+    $produto_ids = array_column($_SESSION['shopping_cart'], 'id_produto');
+ 
+    pre_r($produto_ids);
+  }
+
+  else{
+    $_SESSION['shopping_cart'][0] = array
+    (
+      'id_produto' => filter_input(INPUT_GET, 'id_produto'),
+      'nome_produto' => filter_input(INPUT_POST, 'nome_produto'),
+      'imagem_produto' => filter_input(INPUT_POST, 'imagem_produto'),
+      'quantidade_produto' => filter_input(INPUT_POST, 'quantidade_produto'),
+
+    );
+  }
+}
+//print_r($_SESSION);
+function pre_r($array){
+  echo '<pre>';
+  print_r($array);
+  echo '</pre>';
+}
+
+?>
 <!-- ##### Breadcrumb Area Start ##### -->
-<section class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url(img/banner/gloves.png);">
+<section class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url(img/bg-img/108.png);">
     <div class="container-fluid h-100">
         <div class="row h-100 align-items-center">
             <div class="col-12">
                 <div class="breadcrumb-content">
-                    <h2>Safety Gloves</h2>
+                    <h2>shopping-cart</h2>
                 </div>
                 <div class="breadcrumb-button">
-                    <a href="safetyboots.php" class="btn pixel-btn">know gloves</a>
+                   
                 </div>
             </div>
         </div>

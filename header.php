@@ -19,24 +19,19 @@
     <link rel="stylesheet" href="custom.css">
     <link rel="stylesheet" href="https://w3learnpoint.com/cdn/jquery-picZoomer.css">
     <script type="text/javascript" src="js/jquery/jquery-2.2.4.min.js"></script>
-
-
-
 </head>
 
 <body>
     <!-- Preloader -->
-   
-    
-        <div class="preloader d-flex align-items-center justify-content-center">
+    <div class="preloader d-flex align-items-center justify-content-center">
         <img src="img/core-img/DEF-Safety-logo.png" width="200px" style="position: absolute; top: 40%;">
-            <div class="lds-ellipsis mt-15 ">
+        <div class="lds-ellipsis mt-15 ">
             <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
+    </div>
     </div>
 
     <!-- ##### Header Area Start ##### -->
@@ -97,7 +92,7 @@
                                                 <li><a href="safetyeyes.php">Def Euro Clear</a></li>
                                                 <li><a href="safetyeyes.php">Def Hawk</a></li>
                                             </ul>
-                                            <div class="megamenu" >
+                                            <div class="megamenu">
                                                 <ul class="single-mega cn-col-4">
                                                     <li><a href="earmuffs.php">EARMUFFS</a></li>
                                                     <li><a href="earmuffs.php">Def 22 DB</a></li>
@@ -116,17 +111,44 @@
                                 </ul>
 
                                 <!-- Top Social Info -->
-                                <div class="top-social-info ml-5">
-                                    <input class="input" type="text" placeholder="search.....">
-                                    <a href="#" class="btn-search"><i class="fa fa-search"></i></a>
-                                    <a href="#"><i class="fa fa-shopping-cart"></i></a>
-                                </div>
+                                <form method="POST" name="procurar_dados">
+
+                                    <div class="top-social-info ml-5">
+
+                                        <input class="input" id="achar" name="procurar" type="text"
+                                            placeholder="search.....">
+                                        <a href="" id="btn-procurar" class="btn-search" >
+                                            <i class="fa fa-search"></i></a>
+
+                                        <a href="#"><i class="fa fa-shopping-cart"></i></a>
+                                    </div>
+                                    </form>
                             </div>
                             <!-- Nav End -->
                         </div>
                     </nav>
+
+
                 </div>
             </div>
         </div>
     </header>
     <!-- ##### Header Area End ##### -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#btn_procurar').click(function () {
+                if ($('#achar').val().length > 0) {
+
+                    $.ajax({
+                        url: 'search.php',
+                        method: 'post',
+                        data: $('#procurar_dados').serialize(),
+                        success: function (data) {
+                            alert(data);
+                        }
+                    });
+                }
+            });
+
+        });
+    </script>

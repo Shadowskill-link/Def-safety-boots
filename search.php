@@ -24,12 +24,13 @@ include('conecta.php');
 <section class="services-block-area section-padding-100-0">
     <div class="container">
         <div class="row">
-        <?php $sql ="select * from produtos limit 5";
+        <?php $sql ="select * from produtos";
 		$query = $dbh->prepare($sql);
 		$query->execute();
 		$results=$query->fetchall(PDO::FETCH_OBJ);
 		$cnt=1;
 		if($query->rowCount() > 0)
+        
 		{
 		foreach($results as $result)
 		{   ?>
