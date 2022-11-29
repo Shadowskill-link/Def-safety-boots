@@ -114,17 +114,15 @@
                                 <form method="POST" name="procurar_dados">
 
                                     <div class="top-social-info ml-5">
-
                                         <input class="input" id="achar" name="procurar" type="text"
                                             placeholder="search.....">
-                                        <a href="" id="btn-procurar" class="btn-search" >
+                                        <a href="" id="btn-procurar" class="btn-search">
                                             <i class="fa fa-search"></i></a>
-
                                         <a href="#"><i class="fa fa-shopping-cart"></i></a>
                                     </div>
-                                    </form>
+                                </form>
                             </div>
-                            <!-- Nav End -->
+                            <!-- Nav End -->'
                         </div>
                     </nav>
 
@@ -134,21 +132,4 @@
         </div>
     </header>
     <!-- ##### Header Area End ##### -->
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#btn_procurar').click(function () {
-                if ($('#achar').val().length > 0) {
-
-                    $.ajax({
-                        url: 'search.php',
-                        method: 'post',
-                        data: $('#procurar_dados').serialize(),
-                        success: function (data) {
-                            alert(data);
-                        }
-                    });
-                }
-            });
-
-        });
-    </script>
+ 

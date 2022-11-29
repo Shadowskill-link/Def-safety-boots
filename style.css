@@ -893,6 +893,22 @@ img {
   z-index: 1;
 }
 
+.header-area .top-social-info a span {
+  display: inline-block;
+	text-align: center;
+	background-color: #63748e;
+	border-radius: 50%;
+	color: #FFFFFF;
+	font-size: 12px;
+	line-height: 16px;
+	width: 16px;
+	height: 16px;
+	font-weight: bold;
+	position: absolute;
+	top: 22px;
+	right: 0;
+}
+
 .top-social-info .input {
   background-color: transparent;
   padding: 5px;
