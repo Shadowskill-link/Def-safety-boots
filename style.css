@@ -896,16 +896,16 @@ img {
 .header-area .top-social-info a span {
   display: inline-block;
 	text-align: center;
-	background-color: #63748e;
+	background-color: #fb0;
 	border-radius: 50%;
-	color: #FFFFFF;
+	color: #fff;
 	font-size: 12px;
 	line-height: 16px;
-	width: 16px;
-	height: 16px;
+	width: 18px;
+	height: 18px;
 	font-weight: bold;
 	position: absolute;
-	top: 22px;
+	top: -5px;
 	right: 0;
 }
 
