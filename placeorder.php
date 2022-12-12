@@ -176,20 +176,17 @@ if ($products_in_cart) {
                     </td>
                   </tr>
                   <?php
-                  if(!empty($_SESSION['dados']) || $_SESSION['dados'] ==null){
-                    $_SESSION['dados'] = array();}
+                  if(empty($_SESSION['dados']) || is_null($_SESSION['dados']) ){
+                    $_SESSION['dados'] = array();
+                  }
                     array_push(
-                      
                       $_SESSION['dados'],
                       array('id_produto' => $product['id'],
                             'Nome_produto' => $product['nome_produto'],
                             'quantidade' =>$products_in_cart[$product['id']]
                       )
-                      
                     );
-                 
-                  
-                      echo  var_dump($_SESSION['dados']);
+                    echo  var_dump($_SESSION['dados']);
                       
                   ?> 
 
