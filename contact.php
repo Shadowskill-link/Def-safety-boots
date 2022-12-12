@@ -1,6 +1,4 @@
-<?php
-include_once('header.php')
-?>
+<?= template_header('Contact') ?>
 
 
     <!-- ##### Breadcrumb Area Start ##### -->
@@ -97,6 +95,4 @@ include_once('header.php')
 
     </section>
     <!-- ##### Contact Area End ##### -->
-<?php
-include_once('footer.php')
-?>
+    <?= template_footer() ?>

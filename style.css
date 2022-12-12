@@ -17,10 +17,31 @@
   margin: 0;
   padding: 0;
 }
+/* Works on Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #006 whitesmoke;
+}
 
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: whitesmoke;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #006;
+  border-radius: 20px;
+  border: 3px solid whitesmoke;
+}
 body {
   font-family: "Poppins", sans-serif;
   font-size: 14px;
+  
+  
 }
 
 h1,
@@ -895,18 +916,18 @@ img {
 
 .header-area .top-social-info a span {
   display: inline-block;
-	text-align: center;
-	background-color: #fb0;
-	border-radius: 50%;
-	color: #fff;
-	font-size: 12px;
-	line-height: 16px;
-	width: 18px;
-	height: 18px;
-	font-weight: bold;
-	position: absolute;
-	top: -5px;
-	right: 0;
+  text-align: center;
+  background-color: #fb0;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 12px;
+  line-height: 16px;
+  width: 18px;
+  height: 18px;
+  font-weight: bold;
+  position: absolute;
+  top: -5px;
+  right: 0;
 }
 
 .top-social-info .input {
@@ -2913,5 +2934,27 @@ pixel-projects-menu {
   color: #3c3c3c;
 
 }
+
+.form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0rem rgba(0, 123, 255, .25)
+}
+
+.btn-secondary:focus {
+  box-shadow: 0 0 0 0rem rgba(108, 117, 125, .5)
+}
+
+.close:focus {
+  box-shadow: 0 0 0 0rem rgba(108, 117, 125, .5)
+}
+
+.mt-200 {
+  margin-top: 200px
+}
+
+
 
 /*# sourceMappingURL=style.css.map */

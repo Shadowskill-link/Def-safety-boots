@@ -44,10 +44,10 @@ $total_products = $pdo->query('SELECT * FROM produtos')->rowCount();
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="single-service-block mb-50 wow fadeInUp" data-wow-delay="100ms">
                   
-                    <a href="index.php?page=product&id=<?=$product['id_produto']?>"><img src="img/<?=$product['imagem_produto']?>"></a>
+                    <a href="index.php?page=product&id=<?=$product['id']?>"><img src="img/<?=$product['imagem_produto']?>"></a>
                     <h4 class="mt-15"><?=$product['nome_produto']?></h4>
                     <p><?=$product['descricao_produto']?></p>
-                    <a href="#" class="btn buy-btn"><i class="fa fa-shopping-cart mr-15" style="font-size:25px ;"></i> ADD CART</a>
+                    <a href="index.php?page=product&id=<?=$product['id']?>" class="btn buy-btn"><i class="fa fa-shopping-cart mr-15" style="font-size:25px ;"></i> ADD CART</a>
                 </div>
             </div>
             <?php endforeach; ?> 

@@ -1,6 +1,4 @@
-<?php
-include('header.php');
-?>
+<?= template_header('about') ?>
 
 
 <!-- ##### Breadcrumb Area Start ##### -->
@@ -173,6 +171,4 @@ include('header.php');
         </div>
 </section>
 
-<?php
-include('footer.php');
-?>
+<?= template_footer() ?>
