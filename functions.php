@@ -135,19 +135,19 @@ echo <<<EOT
                                 </ul>
 
                                 <!-- Top Social Info -->
-                                <form method="POST" name="procurar_dados">
+                                
+                                    <form method="POST" action="index.php?page=search" name="procurar_dados">
+                                        <div class="top-social-info ml-5">
+                                            <input class="input" name="procurar" type="text" placeholder="search.....">
+                                               
+                                            <a  type="submit"><i class="fa fa-search"></i></a>
+                                        </form>
 
-                                    <div class="top-social-info ml-5">
-                                        <input class="input" id="achar" name="procurar" type="text"
-                                            placeholder="search.....">
-                                        <a href="search.php" type="submit" id="btn-procurar" ty class="btn-search">
-                                            <i class="fa fa-search"></i></a>
-                                        <a href="index.php?page=cart">
-                                        <i class="fa fa-shopping-cart">
+                                        <a href="index.php?page=cart"><i class="fa fa-shopping-cart">
                                         <span>$num_items_in_cart</span>
                                         </i></a>
                                     </div>
-                                </form>
+                                
                             </div>
                             <!-- Nav End -->'
                         </div>
@@ -159,6 +159,8 @@ echo <<<EOT
         </div>
     </header>
     <!-- ##### Header Area End ##### -->
+
+    
  
 EOT;
 }

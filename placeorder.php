@@ -1,5 +1,4 @@
 <?php
-
 // If the user clicked the add to cart button on the product page we can check for the form data
 if (isset($_POST['product_id'], $_POST['quantity']) && is_numeric($_POST['product_id']) && is_numeric($_POST['quantity'])) {
   // Set the post variables so we easily identify them, also make sure they are integer
@@ -96,8 +95,8 @@ if ($products_in_cart) {
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
-                  <label for="address">Address</label>
-                  <input type="text" class="form-control" id="address"  name="address" placeholder="1234 Main St">
+                  <label for="address1">Address</label>
+                  <input type="text" class="form-control" id="address"  name="address1" placeholder="1234 Main St">
                 </div>
                 <div class="form-group col-md-6">
                   <label for="Address2">Address 2</label>
@@ -181,12 +180,14 @@ if ($products_in_cart) {
                   }
                     array_push(
                       $_SESSION['dados'],
-                      array('id_produto' => $product['id'],
-                            'Nome_produto' => $product['nome_produto'],
-                            'quantidade' =>$products_in_cart[$product['id']]
+                      array(
+                            'id_produto' => $product['id'],
+                            'nome_produto' => $product['nome_produto'],
+                            'descricao_produto' => $product['descricao_produto'],
+                            'quantity' =>$products_in_cart[$product['id']]
                       )
                     );
-                    echo  var_dump($_SESSION['dados']);
+                    //echo  var_dump($_SESSION['dados']);
                       
                   ?> 
 

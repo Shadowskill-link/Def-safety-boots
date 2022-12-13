@@ -1,5 +1,6 @@
 <?php
 
+//session_destroy();
 // If the user clicked the add to cart button on the product page we can check for the form data
 if (isset($_POST['product_id'], $_POST['quantity']) && is_numeric($_POST['product_id']) && is_numeric($_POST['quantity'])) {
     // Set the post variables so we easily identify them, also make sure they are integer
@@ -28,6 +29,7 @@ if (isset($_POST['product_id'], $_POST['quantity']) && is_numeric($_POST['produc
     }
     // Prevent form resubmission...
     header('location: index.php?page=cart');
+    header('location: index.php?page=home');
     exit;
 }
 
@@ -112,6 +114,7 @@ if ($products_in_cart) {
                         <tr>
                             <td colspan="5" style="text-align:center;">You have no products added in your Shopping Cart
                             </td>
+                            <a href="index.php"
                         </tr>
                         <?php else: ?>
                         <?php foreach ($products as $product): ?>

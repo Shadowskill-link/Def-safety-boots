@@ -9,6 +9,7 @@ $total_products = $pdo->query('SELECT * FROM produtos')->rowCount();
 ?>
 
 
+
 <?= template_header('Home') ?>
 
     <section class="hero-area" id="hero-area">
@@ -74,19 +75,24 @@ $total_products = $pdo->query('SELECT * FROM produtos')->rowCount();
         <div class="">
             <h2 class="text-center wow fadeInUp" data-wow-delay="400ms">Some featured products </h2>
             <div class=" section-padding-100-0">
-                
+
             </div>
             <div class="owl-carousel owl-theme container">
                 <?php foreach ($recently_added_products as $product): ?>
-
-                <div class="item">
-                    <a href="index.php?page=product&id=<?= $product['id'] ?>"><img
-                            src="img/<?= $product['imagem_produto'] ?>" alt=""></a>
-                    <h4 class="text-muted mt-15">
-                        <?= $product['nome_produto'] ?>
-                    </h4>
-                </div>
-
+                <form action="index.php?page=cart" method="post">
+                    <div class="item">
+                        <a href="index.php?page=product&id=<?= $product['id'] ?>"><img
+                                src="img/<?= $product['imagem_produto'] ?>" alt=""></a>
+                        <h4 class="text-muted mt-15">
+                            <?= $product['nome_produto'] ?>
+                        </h4>
+                        <input type="hidden" class="form-control" name="quantity" value="1" min="1"
+                            placeholder="Quantity" required>
+                        <input type="hidden" name="product_id" value="<?= $product['id'] ?>">
+                        <input class="btn pixel2-btn" type="submit" value="add to cart">
+                        
+                    </div>
+                </form>
                 <?php endforeach; ?>
             </div>
 
