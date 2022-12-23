@@ -41,13 +41,13 @@ $total_products = $pdo->query('SELECT * FROM produtos')->rowCount();
         <div class="row">
         <?php foreach ($products as $product): ?>
             <!-- Single Service Block -->
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-md-3 col-lg-3">
                 <div class="single-service-block mb-50 wow fadeInUp" data-wow-delay="100ms">
                   
                     <a href="index.php?page=product&id=<?=$product['id']?>"><img src="img/<?=$product['imagem_produto']?>"></a>
-                    <h4 class="mt-15"><?=$product['nome_produto']?></h4>
+                    <h6 class="mt-15"><?=$product['nome_produto']?></h6>
                     <p><?=$product['descricao_produto']?></p>
-                    <a href="index.php?page=product&id=<?=$product['id']?>" class="btn buy-btn"><i class="fa fa-shopping-cart mr-15" style="font-size:25px ;"></i> ADD CART</a>
+                    
                 </div>
             </div>
             <?php endforeach; ?> 

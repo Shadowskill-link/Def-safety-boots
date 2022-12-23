@@ -1,24 +1,26 @@
 <?php
-function pdo_connect_mysql() {
+function pdo_connect_mysql()
+{
     // Update the details below with your MySQL details
     $DATABASE_HOST = 'localhost';
     $DATABASE_USER = 'root';
     $DATABASE_PASS = '';
     $DATABASE_NAME = 'def_safety';
     try {
-    	return new PDO('mysql:host=' . $DATABASE_HOST . ';dbname=' . $DATABASE_NAME . ';charset=utf8', $DATABASE_USER, $DATABASE_PASS);
+        return new PDO('mysql:host=' . $DATABASE_HOST . ';dbname=' . $DATABASE_NAME . ';charset=utf8', $DATABASE_USER, $DATABASE_PASS);
     } catch (PDOException $exception) {
-    	// If there is an error with the connection, stop the script and display the error.
-    	exit('Failed to connect to database!');
+        // If there is an error with the connection, stop the script and display the error.
+        exit('Failed to connect to database!');
     }
 }
 
 
 // Template header, feel free to customize this
-function template_header($title) {
+function template_header($title)
+{
     // Get the amount of items in the shopping cart, this will be displayed in the header.
-$num_items_in_cart = isset($_SESSION['cart']) ? count($_SESSION['cart']) : 0;
-echo <<<EOT
+    $num_items_in_cart = isset($_SESSION['cart']) ? count($_SESSION['cart']) : 0;
+    echo <<<EOT
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,6 +40,7 @@ echo <<<EOT
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="custom.css">
+    
     <link rel="stylesheet" href="https://w3learnpoint.com/cdn/jquery-picZoomer.css">
     <script type="text/javascript" src="js/jquery/jquery-2.2.4.min.js"></script>
     
@@ -88,8 +91,8 @@ echo <<<EOT
                             <div class="classynav">
                                 <ul>
                                     <li><a href="index.php">Home</a></li>
-                                    <li><a href="#">explore def & technical information</a>
-                                        <div class="megamenu" style="border-bottom: none;">
+                                    <li><a href="#">DEF Products</a>
+                                        <div class="megamenu">
                                             <ul class="single-mega cn-col-4">
                                                 <li><a href="index.php?page=products">SAFETY BOOTS</a></li>
                                                 <li><a href="index.php?page=products">S3 Safety Boot</a></li>
@@ -97,51 +100,66 @@ echo <<<EOT
                                                 <li><a href="index.php?page=products">S3 Safety Boot 3M THINSULATE</a></li>
                                             </ul>
                                             <ul class="single-mega cn-col-4">
-                                                <li><a href="reflectivevests.php">REFLECTIVE VESTS</a></li>
-                                                <li><a href="reflectivevests.php">Def ZIP</a></li>
-                                                <li><a href="reflectivevests.php">Def HIVIZ</a></li>
-                                                <li><a href="reflectivevests.php">Def EXEC</a></li>
-                                                <li><a href="reflectivevests.php">Def FOR</a></li>
+                                                <li><a href="index.php?page=reflectivevests">REFLECTIVE VESTS</a></li>
+                                                <li><a href="index.php?page=reflectivevests">Def ZIP</a></li>
+                                                <li><a href="index.php?page=reflectivevests">Def HIVIZ</a></li>
+                                                <li><a href="index.php?page=reflectivevests">Def EXEC</a></li>
+                                                <li><a href="index.php?page=reflectivevests">Def FOR</a></li>
                                             </ul>
                                             <ul class="single-mega cn-col-4">
-                                                <li><a href="gloves.php">SAFETY GOLVES</a></li>
-                                                <li><a href="gloves.php">GLOVES NITRIL</a></li>
-                                                <li><a href="gloves.php">GlOVES LATEX</a></li>
-                                                <li><a href="gloves.php">GLOVES PU</a></li>
-                                                <li><a href="gloves.php">GLOVES PVC</a></li>
+                                                <li><a href="index.php?page=gloves">SAFETY gloves</a></li>
+                                                <li><a href="index.php?page=gloves">GLOVES NITRIL</a></li>
+                                                <li><a href="index.php?page=gloves">GlOVES LATEX</a></li>
+                                                <li><a href="index.php?page=gloves">GLOVES PU</a></li>
+                                                <li><a href="index.php?page=gloves">GLOVES PVC</a></li>
                                             </ul>
                                             <ul class="single-mega cn-col-4">
-                                                <li><a href="safetyeyes.php">SAFETY EYEWEAR</a></li>
-                                                <li><a href="safetyeyes.php">Def Sport Clear</a></li>
-                                                <li><a href="safetyeyes.php">Def Euro Clear</a></li>
-                                                <li><a href="safetyeyes.php">Def Hawk</a></li>
+                                                <li><a href="index.php?page=safetyeyes">SAFETY EYEWEAR</a></li>
+                                                <li><a href="index.php?page=safetyeyes">Def Sport Clear</a></li>
+                                                <li><a href="index.php?page=safetyeyes">Def Euro Clear</a></li>
+                                                <li><a href="index.php?page=safetyeyes">Def Hawk</a></li>
                                             </ul>
                                             <div class="megamenu">
                                                 <ul class="single-mega cn-col-4">
-                                                    <li><a href="earmuffs.php">EARMUFFS</a></li>
-                                                    <li><a href="earmuffs.php">Def 22 DB</a></li>
-                                                    <li><a href="earmuffs.php">Def 27 DB</a></li>
-                                                    <li><a href="earmuffs.php">Def 26 DB</a></li>
+                                                    <li><a>EARMUFffS</a></li>
+                                                    <li><a href="index.php?page=earmuffs">Def 22 DB</a></li>
+                                                    <li><a href="index.php?page=earmuffs">Def 27 DB</a></li>
+                                                    <li><a href="index.php?page=earmuffs">Def 26 DB</a></li>
                                                 </ul>
                                                 <ul class="single-mega cn-col-4">
-                                                    <li><a href="ppi.php">Other PPI</a></li>
-                                                    <li><a href="earmuffs.php">Technical information</a></li>
+                                                    <li><a>BUMPCAP</a></li>
+                                                    <li><a href="index.php?page=bumpcap">Bump Cap</a></li>
+                                                   
                                                 </ul>
                                             </div>
+                                            
                                         </div>
                                     </li>
-                                    <li><a href="about.php">About</a></li>
-                                    <li><a href="contact.php">Contact</a></li>
+                                    <li><a href="services.html">Explore DEF</a>
+                                    <ul class="dropdown">
+                                        <li><a href="index.php?page=ppi">Other PPE</a></li>
+                                        <li><a href="index.php?page=distributor">Become Distributor</a></li>
+                                        <li><a href="index.php?page=about#maps">Find Distributor</a></li>
+                                    </ul>
+                                </li>
+                                    <li><a href="index.php?page=about">About</a></li>
+                                    <li><a href="index.php?page=contact">Contact</a></li>
                                 </ul>
 
                                 <!-- Top Social Info -->
                                 
-                                    <form method="POST" action="index.php?page=search" name="procurar_dados">
+                                    <form method="POST" action="index.php?page=search">
                                         <div class="top-social-info ml-5">
-                                            <input class="input" name="procurar" type="text" placeholder="search.....">
-                                               
-                                            <a  type="submit"><i class="fa fa-search"></i></a>
-                                        </form>
+                                            <input class="input" name="key" type="text" placeholder="search.....">
+
+                                            
+                                            <button type="submit" class=" btn btn-outline" name="submit">
+                                                <i class="fa fa-search"></i>
+                                            </button>
+                                            
+                                            
+                                        
+                                            </form>
 
                                         <a href="index.php?page=cart"><i class="fa fa-shopping-cart">
                                         <span>$num_items_in_cart</span>
@@ -152,22 +170,22 @@ echo <<<EOT
                             <!-- Nav End -->'
                         </div>
                     </nav>
-
-
                 </div>
             </div>
         </div>
     </header>
     <!-- ##### Header Area End ##### -->
 
+
     
  
 EOT;
 }
 // Template footer
-function template_footer() {
+function template_footer()
+{
 
-echo <<<EOT
+    echo <<<EOT
 <!-- ##### Footer Area Start ##### -->
 <footer class="footer-area section-padding-100-0">
     <div class="container-fluid">
@@ -274,7 +292,8 @@ echo <<<EOT
                 loop: true,
                 margin: 10,
                 nav: true,
-               autoplay:true,
+                navText: ["<div class='nav-button owl-prev'><</div>", "<div class='nav-button owl-next'>></div>"],
+                autoplay:true,
                 responsive: {
                     0: {
                         items: 1
@@ -283,13 +302,11 @@ echo <<<EOT
                         items: 3
                     },
                     1000: {
-                        items: 5
+                        items: 6
                     }
                 }
             })
         </script>
-
-
 </body>
 
 </html>

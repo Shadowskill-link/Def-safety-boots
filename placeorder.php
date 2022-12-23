@@ -200,7 +200,7 @@ if ($products_in_cart) {
           
         </div>
         <hr>
-        <input type="submit" class="btn pixel2-btn" value="Checkout">
+        <input type="submit" data-toggle="tooltip" data-placement="top" title="Tooltip on top" class="btn pixel2-btn" value="Checkout">
         </form>
       </div>
   </section>

@@ -22,7 +22,7 @@
       </div>
 
     <!-- ##### Contact Area Start ##### -->
-    <section class="contact-area section-padding-100-0">
+    <section class="contact-area section-padding-100-0" id="contact">
         <div class="container">
             <div class="row">
 

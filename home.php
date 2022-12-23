@@ -6,6 +6,7 @@ $recently_added_products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 // Get the total number of products
 $total_products = $pdo->query('SELECT * FROM produtos')->rowCount();
 
+   
 ?>
 
 
@@ -83,13 +84,12 @@ $total_products = $pdo->query('SELECT * FROM produtos')->rowCount();
                     <div class="item">
                         <a href="index.php?page=product&id=<?= $product['id'] ?>"><img
                                 src="img/<?= $product['imagem_produto'] ?>" alt=""></a>
-                        <h4 class="text-muted mt-15">
+                        <h6 class="text-muted mt-15">
                             <?= $product['nome_produto'] ?>
-                        </h4>
+                        </h6>
                         <input type="hidden" class="form-control" name="quantity" value="1" min="1"
                             placeholder="Quantity" required>
-                        <input type="hidden" name="product_id" value="<?= $product['id'] ?>">
-                        <input class="btn pixel2-btn" type="submit" value="add to cart">
+                      
                         
                     </div>
                 </form>
@@ -119,7 +119,7 @@ $total_products = $pdo->query('SELECT * FROM produtos')->rowCount();
                         style="font-size:60px; font-weight:800px; text-transform: capitalize; color: #000; ;">Quick turn
                         around times as all items are stocked in country
                     </h2>
-                    <div class="button mt-50 justify-content-center text-center" style="z-index: 99999; ;"><a href="#"
+                    <div class="button mt-50 justify-content-center text-center" style="z-index: 99999; ;"><a href="index.php?page"
                             class="btn pixel-btn wow fadeInUp" data-delay="700ms">Find a Distributor</a>
                     </div>
                 </div>
@@ -129,18 +129,21 @@ $total_products = $pdo->query('SELECT * FROM produtos')->rowCount();
 
 
     <!-- ##### Newsletter Area Start ###### -->
+    
     <section class="nl-area section-padding-100-0">
         <div class="container">
             <div class="row align-items-end">
                 <div class="col-12 col-md-9">
                     <div class="nl-form mb-100">
                         <h4>Stay in touch with us</h4>
-                        <form action="#" method="post"> <input type="email" name="nl-email" id="nlEmail"
-                                placeholder="Email Address ..."> <button type="submit" class="d-none"></button></form>
+                        <form <?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?> method="post"> 
+                        <input type="email" name="email" id="email"
+                                placeholder="Email Address ..."> 
+                        <button type="submit" class="d-none"></button></form>
                     </div>
                 </div>
                 <div class="col-12 col-md-3">
-                    <div class="view-projects-btn text-right mb-100"><a href="#" class="btn pixel-btn">Subscribe</a>
+                    <div class="view-projects-btn text-right mb-100"><button href="#" class="btn pixel-btn">Subscribe</button>
                     </div>
                 </div>
             </div>

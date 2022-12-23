@@ -11,6 +11,7 @@
 @import url(css/animate.css);
 @import url(css/magnific-popup.css);
 @import url(css/font-awesome.min.css);
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css");
 
 /* :: 3.0 Base CSS */
 * {
@@ -385,7 +386,7 @@ img {
 .icones {
   display: inline-block;
   padding: 8px;
-  margin-top: 1px;
+  margin-top: 15px;
   margin-left: 8px;
   background-color: #006;
 
@@ -1022,63 +1023,9 @@ img {
   z-index: 1;
 }
 
-.hero-area .owl-prev,
-.hero-area .owl-next {
-  position: absolute;
-  top: 50%;
-  font-size: 24px;
-  font-weight: 700;
-  color: #fb0;
-  left: 50px;
-  text-transform: uppercase;
-  -webkit-transition-duration: 500ms;
-  -o-transition-duration: 500ms;
-  transition-duration: 500ms;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  opacity: 0;
-  visibility: hidden;
-}
 
-@media only screen and (min-width: 768px) and (max-width: 991px) {
 
-  .hero-area .owl-prev,
-  .hero-area .owl-next {
-    font-size: 18px;
-  }
-}
 
-@media only screen and (max-width: 767px) {
-
-  .hero-area .owl-prev,
-  .hero-area .owl-next {
-    left: 20px;
-    font-size: 16px;
-  }
-}
-
-.hero-area .owl-prev:hover,
-.hero-area .owl-next:hover {
-  color: #000066;
-}
-
-.hero-area .owl-next {
-  left: auto;
-  right: 50px;
-}
-
-@media only screen and (max-width: 767px) {
-  .hero-area .owl-next {
-    right: 20px;
-  }
-}
-
-.hero-area:hover .owl-next,
-.hero-area:hover .owl-prev {
-  opacity: 1;
-  visibility: visible;
-}
 
 .single-slide {
   position: relative;
@@ -1120,7 +1067,7 @@ img {
 }
 
 .single-slide .welcome-text h2 {
-  font-size: 66px;
+  font-size: 58px;
   color: #ffffff;
   font-weight: bolder;
   font-family: 'Montserrat', sans-serif;
@@ -1584,6 +1531,48 @@ pixel-projects-menu {
   color: #ffd502;
   line-height: 23px;
   margin: 0 5px;
+}
+.owl-carousel .owl-nav {
+  overflow: hidden;
+  height: 0px;
+}
+.owl-theme .owl-dots .owl-dot.active span,
+.owl-theme .owl-dots .owl-dot:hover span {
+  background: #5110e9;
+}
+
+.owl-carousel .item {
+  text-align: center;
+}
+.owl-carousel .nav-button {
+  height: 50px;
+  width: 25px;
+  cursor: pointer;
+  position: absolute;
+  top: 110px !important;
+}
+.owl-carousel .owl-prev.disabled,
+.owl-carousel .owl-next.disabled {
+  pointer-events: none;
+  opacity: 0.25;
+}
+.owl-carousel .owl-prev {
+  left: -35px;
+}
+.owl-carousel .owl-next {
+  right: -35px;
+}
+.owl-theme .owl-nav [class*=owl-] {
+  color: #ffffff;
+  font-size: 39px;
+  background: #006;
+  border-radius: 3px;
+}
+.owl-carousel .prev-carousel:hover {
+  background-position: 0px -53px;
+}
+.owl-carousel .next-carousel:hover {
+  background-position: -24px -53px;
 }
 
 .single-team-member .hover-text .social-info a:hover,
@@ -2844,10 +2833,6 @@ pixel-projects-menu {
   stroke-dashoffset: 100%
 }
 
-#prov-inhambane {
-  fill: #006;
-  stroke-dashoffset: 100%;
-}
 
 #prov-nampula {
   fill: #006;
@@ -2858,16 +2843,25 @@ pixel-projects-menu {
   fill: #006;
   stroke-dashoffset: 100%;
 }
+#prov-manica {
+  fill: #006;
+  stroke-dashoffset: 100%;
+}
 
 #prov-nampula {
   fill: #006;
   stroke-dashoffset: 100%
 }
-
-#prov-tete {
+#prov-matola {
   fill: #006;
-  stroke-dashoffset: 100%;
+  stroke-dashoffset: 100%
 }
+#prov-cabodelgado {
+  fill: #006;
+  stroke-dashoffset: 100%
+}
+
+
 
 .mapa-svg-provincia:hover {
 
