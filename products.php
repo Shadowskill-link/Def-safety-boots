@@ -47,7 +47,7 @@ $total_products = $pdo->query('SELECT * FROM produtos')->rowCount();
                     <a href="index.php?page=product&id=<?=$product['id']?>"><img src="img/<?=$product['imagem_produto']?>"></a>
                     <h6 class="mt-15"><?=$product['nome_produto']?></h6>
                     <p><?=$product['descricao_produto']?></p>
-                    
+                     
                 </div>
             </div>
             <?php endforeach; ?> 

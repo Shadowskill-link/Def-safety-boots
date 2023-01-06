@@ -113,8 +113,9 @@ if ($products_in_cart) {
                         <?php if (empty($products)): ?>
                         <tr>
                             <td colspan="5" style="text-align:center;">You have no products added in your Shopping Cart
+                              <a href="index.php">Back to Menu</a>
                             </td>
-                            <a href="index.php"
+                            
                         </tr>
                         <?php else: ?>
                         <?php foreach ($products as $product): ?>
