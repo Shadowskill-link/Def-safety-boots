@@ -42,7 +42,7 @@ if (isset($_POST["emp_id"]))
     while($row = mysqli_fetch_array($result)) {
           $nome = $row["nome_produto"];
 
-          $query2 = "SELECT * FROM produtos where nome_produto = '$nome'";  
+          $query2 = "SELECT * FROM produtos WHERE nome_produto = '$nome'";  
           $result2 = mysqli_query($connect, $query2);
           $row2 = mysqli_fetch_array($result2);
 
