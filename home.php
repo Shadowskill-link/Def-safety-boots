@@ -119,7 +119,7 @@ $total_products = $pdo->query('SELECT * FROM produtos')->rowCount();
                         style="font-size:60px; font-weight:800px; text-transform: capitalize; color: #000; ;">Quick turn
                         around times as all items are stocked in country
                     </h2>
-                    <div class="button mt-50 justify-content-center text-center" style="z-index: 99999; ;"><a href="index.php?page"
+                    <div class="button mt-50 justify-content-center text-center" style="z-index: 99999; ;"><a href="index.php?page=about#maps"
                             class="btn pixel-btn wow fadeInUp" data-delay="700ms">Find a Distributor</a>
                     </div>
                 </div>

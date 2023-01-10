@@ -153,7 +153,7 @@ function template_header($title)
                                             <input class="input" name="key" type="text" placeholder="search.....">
 
                                             
-                                            <button type="submit" class=" btn btn-outline" name="submit">
+                                            <button type="submit" class="btn btn-outline-light" style="border-radius:50%; border:solid 2px;" name="submit">
                                                 <i class="fa fa-search"></i>
                                             </button>
                                             

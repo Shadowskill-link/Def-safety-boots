@@ -1,0 +1,823 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump
+- version 5.1.1
+- https://www.phpmyadmin.net
+-
+- Host: 127.0.0.1
+- Tempo de geração: 06-Jan-2023 às 23:52
+- Versão do servidor: 10.4.21-MariaDB
+- versão do PHP: 7.3.31
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="https://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="def_safety" collation="utf8mb4_general_ci" charset="utf8mb4">
+            <pma:table name="cart">
+                CREATE TABLE `cart` (
+                  `id_cart` int(11) NOT NULL,
+                  `type` varchar(111) NOT NULL,
+                  `nome_produto` varchar(111) NOT NULL,
+                  `code_produto` varchar(111) NOT NULL,
+                  `descricao_produto` varchar(111) NOT NULL,
+                  `quantity` int(11) NOT NULL,
+                  `imagem_produto` varchar(111) NOT NULL,
+                  `imagem_baixo_produto` varchar(111) NOT NULL,
+                  `detalhes_produto` text NOT NULL
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+            </pma:table>
+            <pma:table name="categoria">
+                CREATE TABLE `categoria` (
+                  `categoria_id` int(11) NOT NULL AUTO_INCREMENT,
+                  `nome` varchar(255) NOT NULL,
+                  PRIMARY KEY (`categoria_id`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
+            </pma:table>
+            <pma:table name="distributor">
+                CREATE TABLE `distributor` (
+                  `id` int(11) NOT NULL AUTO_INCREMENT,
+                  `email` varchar(255) NOT NULL,
+                  `password` varchar(255) NOT NULL,
+                  `adress` varchar(255) NOT NULL,
+                  `adress2` varchar(255) NOT NULL,
+                  `city` varchar(255) NOT NULL,
+                  `state` varchar(255) NOT NULL,
+                  `zip` varchar(255) NOT NULL,
+                  `country` varchar(255) NOT NULL,
+                  PRIMARY KEY (`id`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+            </pma:table>
+            <pma:table name="emails">
+                CREATE TABLE `emails` (
+                  `id` int(11) NOT NULL,
+                  `email` varchar(30) NOT NULL,
+                  PRIMARY KEY (`id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+            </pma:table>
+            <pma:table name="orders">
+                CREATE TABLE `orders` (
+                  `orders_id` int(111) NOT NULL AUTO_INCREMENT,
+                  `fullname` varchar(255) NOT NULL,
+                  `email` varchar(255) NOT NULL,
+                  `company` varchar(255) NOT NULL,
+                  `address1` varchar(255) NOT NULL,
+                  `address2` varchar(255) NOT NULL,
+                  `city` varchar(255) NOT NULL,
+                  `provincia` varchar(255) NOT NULL,
+                  PRIMARY KEY (`orders_id`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=612 DEFAULT CHARSET=utf8mb4;
+            </pma:table>
+            <pma:table name="order_produto">
+                CREATE TABLE `order_produto` (
+                  `id` int(11) NOT NULL AUTO_INCREMENT,
+                  `id_orders` int(11) NOT NULL,
+                  `nome_produto` varchar(255) NOT NULL,
+                  `descricao_produto` varchar(255) NOT NULL,
+                  `quantity` int(15) NOT NULL,
+                  PRIMARY KEY (`id`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=90 DEFAULT CHARSET=utf8mb4;
+            </pma:table>
+            <pma:table name="produtos">
+                CREATE TABLE `produtos` (
+                  `id` int(11) NOT NULL AUTO_INCREMENT,
+                  `categoria_id` int(11) NOT NULL,
+                  `categoria` varchar(255) NOT NULL,
+                  `Type` varchar(255) NOT NULL,
+                  `nome_produto` varchar(255) NOT NULL,
+                  `code_produto` varchar(25) NOT NULL,
+                  `descricao_produto` varchar(255) NOT NULL,
+                  `quantity` int(25) NOT NULL,
+                  `imagem_produto` varchar(255) NOT NULL,
+                  `imagem_produto_baixo` varchar(255) NOT NULL,
+                  `detalhes_produto` longtext NOT NULL,
+                  PRIMARY KEY (`id`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4;
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+
+    <!--
+    - Banco de dados: 'def_safety'
+    -->
+    <database name="def_safety">
+        <!-- Tabela cart -->
+        <!-- Tabela categoria -->
+        <table name="categoria">
+            <column name="categoria_id">1</column>
+            <column name="nome">boots</column>
+        </table>
+        <table name="categoria">
+            <column name="categoria_id">2</column>
+            <column name="nome">earmuffs</column>
+        </table>
+        <table name="categoria">
+            <column name="categoria_id">3</column>
+            <column name="nome">reflective vests</column>
+        </table>
+        <table name="categoria">
+            <column name="categoria_id">4</column>
+            <column name="nome">gloves</column>
+        </table>
+        <table name="categoria">
+            <column name="categoria_id">5</column>
+            <column name="nome">eyewear</column>
+        </table>
+        <table name="categoria">
+            <column name="categoria_id">6</column>
+            <column name="nome">otherppi</column>
+        </table>
+        <!-- Tabela distributor -->
+        <table name="distributor">
+            <column name="id">2</column>
+            <column name="email">samsonmassiga@gmail.com</column>
+            <column name="password">Shadownet22</column>
+            <column name="adress">Urbanizacao</column>
+            <column name="adress2">Q:40 casa 25 R/C</column>
+            <column name="city">Maputo</column>
+            <column name="state">Maputo</column>
+            <column name="zip">1214</column>
+            <column name="country">MZ</column>
+        </table>
+        <table name="distributor">
+            <column name="id">3</column>
+            <column name="email">laercioaristides@gmail.com</column>
+            <column name="password">Maunde013</column>
+            <column name="adress">Mahotas</column>
+            <column name="adress2">Q:19 casa 56 R/C</column>
+            <column name="city">CIdade Maputo</column>
+            <column name="state">Maputo</column>
+            <column name="zip">1106</column>
+            <column name="country">MZ</column>
+        </table>
+        <!-- Tabela emails -->
+        <!-- Tabela orders -->
+        <table name="orders">
+            <column name="orders_id">610</column>
+            <column name="fullname">Samson Massinga</column>
+            <column name="email">samsonmassinga@gmail.com</column>
+            <column name="company">SAMoz</column>
+            <column name="address1">Av. Angola</column>
+            <column name="address2">casa.23</column>
+            <column name="city">Maputo</column>
+            <column name="provincia">Maputo Province</column>
+        </table>
+        <table name="orders">
+            <column name="orders_id">611</column>
+            <column name="fullname">Laércio Aristide</column>
+            <column name="email">laercioaristides13@gmail.com</column>
+            <column name="company">NextOne</column>
+            <column name="address1">AV.angola</column>
+            <column name="address2">DEF</column>
+            <column name="city">Maputo</column>
+            <column name="provincia">Maputo Province</column>
+        </table>
+        <!-- Tabela order_produto -->
+        <table name="order_produto">
+            <column name="id">85</column>
+            <column name="id_orders">610</column>
+            <column name="nome_produto">DEF CHELSEA</column>
+            <column name="descricao_produto">DE-7500 </column>
+            <column name="quantity">1</column>
+        </table>
+        <table name="order_produto">
+            <column name="id">86</column>
+            <column name="id_orders">610</column>
+            <column name="nome_produto">DEF:G-10GRIP</column>
+            <column name="descricao_produto">Latex Grip rough palm FLEX and GRIP</column>
+            <column name="quantity">1</column>
+        </table>
+        <table name="order_produto">
+            <column name="id">87</column>
+            <column name="id_orders">611</column>
+            <column name="nome_produto">DEF BASIX</column>
+            <column name="descricao_produto">B700160</column>
+            <column name="quantity">1</column>
+        </table>
+        <table name="order_produto">
+            <column name="id">88</column>
+            <column name="id_orders">611</column>
+            <column name="nome_produto">DEF EURO CLEAR</column>
+            <column name="descricao_produto">CODE:DEF 200c</column>
+            <column name="quantity">1</column>
+        </table>
+        <table name="order_produto">
+            <column name="id">89</column>
+            <column name="id_orders">611</column>
+            <column name="nome_produto">DEF:G-10XTRA</column>
+            <column name="descricao_produto">Polytril Grip rough palm GRIP</column>
+            <column name="quantity">1</column>
+        </table>
+        <!-- Tabela produtos -->
+        <table name="produtos">
+            <column name="id">1</column>
+            <column name="categoria_id">1</column>
+            <column name="categoria">Boots/Botas</column>
+            <column name="Type"></column>
+            <column name="nome_produto">DEF BASIX</column>
+            <column name="code_produto"></column>
+            <column name="descricao_produto">B700160</column>
+            <column name="quantity">0</column>
+            <column name="imagem_produto">boot-1.jpg
+</column>
+            <column name="imagem_produto_baixo">boot-1-baixo.jpg</column>
+            <column name="detalhes_produto">- Chrome Barton print water resistant
+leather upper;
+- 200 Joule Steel toe cap;
+- Anti-static properties;
+- Anti-penetration midsole;
+- Dual density PU outer sole;
+- Padded collar and Padded tongue;
+- Reective strip on back of boot;
+- SRC slip resistance rated;
+- Use waxy polish to feed the leather and
+add to the lifespan of the boot.
+Sizes: 3 - 13</column>
+        </table>
+        <table name="produtos">
+            <column name="id">2</column>
+            <column name="categoria_id">1</column>
+            <column name="categoria">Boots/Botas</column>
+            <column name="Type"></column>
+            <column name="nome_produto">DEF FORTE</column>
+            <column name="code_produto"></column>
+            <column name="descricao_produto">DE-6550 </column>
+            <column name="quantity">0</column>
+            <column name="imagem_produto">boot-2.jpg</column>
+            <column name="imagem_produto_baixo">boot-2-baixo.jpg</column>
+            <column name="detalhes_produto">Full grain Barton print water resistant upper;
+- 200 Joule Steel toe cap;
+- Bumper on toe cap for added protection;
+- Anti-static properties;
+- Anti-penetration midsole;
+- Memory foam footbed for added comfort;
+- High quality Dual density polyurethane outer
+sole;
+- Reective stipe on back of boot;
+- Six eyelets that mold to the shape of your
+boot for added comfort;
+- Padded collar Padded tongue;
+- SRC slip resistance rated.
+Sizes: 2 to 13</column>
+        </table>
+        <table name="produtos">
+            <column name="id">3</column>
+            <column name="categoria_id">1</column>
+            <column name="categoria">Boots/Botas</column>
+            <column name="Type"></column>
+            <column name="nome_produto">DEF CHELSEA</column>
+            <column name="code_produto"></column>
+            <column name="descricao_produto">DE-7500 </column>
+            <column name="quantity">0</column>
+            <column name="imagem_produto">boot-3.jpg</column>
+            <column name="imagem_produto_baixo">boot-3-baixo.jpg</column>
+            <column name="detalhes_produto">- Full grain Nubuck water resistant leather;
+- 200 Joule Steel toe cap;
+- Bumper on toe cap for added protection;
+- Anti-static properties;
+- Memory foam footbed for added comfort;
+- PU/RUBBER Outsole resisting heat up to
+300 degrees;
+- SRC slip resistance rated;
+- Use a Kiwi foam cleaner to feed the leather
+this assists in maintaining the distressed
+look and adds to the lifespan of the boot.
+Sizes: 3 - 13</column>
+        </table>
+        <table name="produtos">
+            <column name="id">4</column>
+            <column name="categoria_id">1</column>
+            <column name="categoria">Boots/Botas</column>
+            <column name="Type"></column>
+            <column name="nome_produto">DEF TEC</column>
+            <column name="code_produto"></column>
+            <column name="descricao_produto">DE-8500</column>
+            <column name="quantity">0</column>
+            <column name="imagem_produto">boot-5.jpg</column>
+            <column name="imagem_produto_baixo">boot-5-baixo.jpg</column>
+            <column name="detalhes_produto">Full Grain New Waxy Leather Upper with
+water resistant properties;
+- 200 Joule composite toe cap;
+- Bumper on toe cap added protection;
+- Anti-static properties;
+- Memory foam footbed with Gel heel for
+added comfort;
+- Footbed also includes assistance in
+stabilizing the foot for all day wear;
+- PU/RUBBER Outsole resisting heat up to 300
+degrees;
+- SRC slip resistance rated;
+- Padded collar and Padded tongue for added
+comfort;
+- 3M Thinsulate material used inside boot
+which assists with water resistance,
+increases moisture release and keeps the
+feet cool on hot days.
+Sizes: 3 - 1</column>
+        </table>
+        <table name="produtos">
+            <column name="id">5</column>
+            <column name="categoria_id">1</column>
+            <column name="categoria">Boots/Botas</column>
+            <column name="Type"></column>
+            <column name="nome_produto">DEF FORTE BROWN</column>
+            <column name="code_produto"></column>
+            <column name="descricao_produto">B700160</column>
+            <column name="quantity">0</column>
+            <column name="imagem_produto">boot-4.jpg</column>
+            <column name="imagem_produto_baixo">boot-4-baixo.jpg</column>
+            <column name="detalhes_produto"></column>
+        </table>
+        <table name="produtos">
+            <column name="id">6</column>
+            <column name="categoria_id">2</column>
+            <column name="categoria">Reflective vests/reflectores</column>
+            <column name="Type"></column>
+            <column name="nome_produto">DEF-FOR REFLECTIVE VESTS</column>
+            <column name="code_produto"></column>
+            <column name="descricao_produto">2 Tone FORCE jacket</column>
+            <column name="quantity">0</column>
+            <column name="imagem_produto">def-for.png</column>
+            <column name="imagem_produto_baixo"></column>
+            <column name="detalhes_produto"></column>
+        </table>
+        <table name="produtos">
+            <column name="id">7</column>
+            <column name="categoria_id">2</column>
+            <column name="categoria">Reflective vests/reflectores</column>
+            <column name="Type"></column>
+            <column name="nome_produto">DEFEXEC-Y/N REFLECTIVE VESTS</column>
+            <column name="code_produto"></column>
+            <column name="descricao_produto">2 Tone Multipocket vest</column>
+            <column name="quantity">0</column>
+            <column name="imagem_produto">defexec-yn.png</column>
+            <column name="imagem_produto_baixo"></column>
+            <column name="detalhes_produto"></column>
+        </table>
+        <table name="produtos">
+            <column name="id">8</column>
+            <column name="categoria_id">2</column>
+            <column name="categoria">Reflective vests/reflectores</column>
+            <column name="Type"></column>
+            <column name="nome_produto">DEFEXEC-Y/G REFLECTIVE VESTS</column>
+            <column name="code_produto"></column>
+            <column name="descricao_produto">2 Tone Multipocket vest</column>
+            <column name="quantity">0</column>
+            <column name="imagem_produto">defexec-yg.png</column>
+            <column name="imagem_produto_baixo"></column>
+            <column name="detalhes_produto"></column>
+        </table>
+        <table name="produtos">
+            <column name="id">9</column>
+            <column name="categoria_id">2</column>
+            <column name="categoria">Reflective vests/reflectores</column>
+            <column name="Type"></column>
+            <column name="nome_produto">DEFEXEC-R/B REFLECTIVE VESTS</column>
+            <column name="code_produto"></column>
+            <column name="descricao_produto">2 Tone Multipocket Vest</column>
+            <column name="quantity">0</column>
+            <column name="imagem_produto">defexec-rb.png</column>
+            <column name="imagem_produto_baixo"></column>
+            <column name="detalhes_produto"></column>
+        </table>
+        <table name="produtos">
+            <column name="id">10</column>
+            <column name="categoria_id">2</column>
+            <column name="categoria">Reflective vests/reflectores</column>
+            <column name="Type"></column>
+            <column name="nome_produto">DEFZIPO REFLECTIVE VESTS</column>
+            <column name="code_produto"></column>
+            <column name="descricao_produto">120grm Vest with Zip</column>
+            <column name="quantity">0</column>
+            <column name="imagem_produto">defzipo.png</column>
+            <column name="imagem_produto_baixo"></column>
+            <column name="detalhes_produto"></column>
+        </table>
+        <table name="produtos">
+            <column name="id">11</column>
+            <column name="categoria_id">2</column>
+            <column name="categoria">Reflective vests/reflectores</column>
+            <column name="Type"></column>
+            <column name="nome_produto">DEFEXEC-O/N REFLECTIVE VESTS</column>
+            <column name="code_produto"></column>
+            <column name="descricao_produto">2 Tone Multipocket Vest</column>
+            <column name="quantity">0</column>
+            <column name="imagem_produto">defexe-on.png</column>
+            <column name="imagem_produto_baixo"></column>
+            <column name="detalhes_produto"></column>
+        </table>
+        <table name="produtos">
+            <column name="id">12</column>
+            <column name="categoria_id">2</column>
+            <column name="categoria">Reflective vests/reflectores</column>
+            <column name="Type"></column>
+            <column name="nome_produto">DEF HIVIZWCO</column>
+            <column name="code_produto"></column>
+            <column name="descricao_produto">5 Way Adjustable Vest</column>
+            <column name="quantity">0</column>
+            <column name="imagem_produto">defhivizwco.png</column>
+            <column name="imagem_produto_baixo"></column>
+            <column name="detalhes_produto"></column>
+        </table>
+        <table name="produtos">
+            <column name="id">13</column>
+            <column name="categoria_id">2</column>
+            <column name="categoria">Reflective vests/reflectores</column>
+            <column name="Type"></column>
+            <column name="nome_produto">DEF HIVIZWCL</column>
+            <column name="code_produto"></column>
+            <column name="descricao_produto">5 Way Adjustable Vest</column>
+            <column name="quantity">0</column>
+            <column name="imagem_produto">defzhivizwcl.png</column>
+            <column name="imagem_produto_baixo"></column>
+            <column name="detalhes_produto"></column>
+        </table>
+        <table name="produtos">
+            <column name="id">14</column>
+            <column name="categoria_id">3</column>
+            <column name="categoria">SAFETY EYEWEAR/ oculos</column>
+            <column name="Type"></column>
+            <column name="nome_produto">DEF CRUZ</column>
+            <column name="code_produto"></column>
+            <column name="descricao_produto">CODE:DEF-1022</column>
+            <column name="quantity">0</column>
+            <column name="imagem_produto">cruz.png</column>
+            <column name="imagem_produto_baixo"></column>
+            <column name="detalhes_produto"></column>
+        </table>
+        <table name="produtos">
+            <column name="id">15</column>
+            <column name="categoria_id">3</column>
+            <column name="categoria">SAFETY EYEWEAR/ oculos</column>
+            <column name="Type"></column>
+            <column name="nome_produto">DEF XCELZ</column>
+            <column name="code_produto"></column>
+            <column name="descricao_produto">CODE:DEF-1027</column>
+            <column name="quantity">0</column>
+            <column name="imagem_produto">xcelz.png</column>
+            <column name="imagem_produto_baixo"></column>
+            <column name="detalhes_produto"></column>
+        </table>
+        <table name="produtos">
+            <column name="id">16</column>
+            <column name="categoria_id">3</column>
+            <column name="categoria">SAFETY EYEWEAR/ oculos</column>
+            <column name="Type"></column>
+            <column name="nome_produto">DEF TWINZ</column>
+            <column name="code_produto"></column>
+            <column name="descricao_produto">CODE:DEF-1026</column>
+            <column name="quantity">0</column>
+            <column name="imagem_produto">twinz.png</column>
+            <column name="imagem_produto_baixo"></column>
+            <column name="detalhes_produto"></column>
+        </table>
+        <table name="produtos">
+            <column name="id">17</column>
+            <column name="categoria_id">4</column>
+            <column name="categoria">SAFETY EYEWEAR/ oculos</column>
+            <column name="Type"></column>
+            <column name="nome_produto">DEF SPORT CLEAR</column>
+            <column name="code_produto"></column>
+            <column name="descricao_produto">CODE:DEF 100c</column>
+            <column name="quantity">0</column>
+            <column name="imagem_produto">def-sport-clear.png</column>
+            <column name="imagem_produto_baixo"></column>
+            <column name="detalhes_produto"></column>
+        </table>
+        <table name="produtos">
+            <column name="id">18</column>
+            <column name="categoria_id">4</column>
+            <column name="categoria">SAFETY EYEWEAR/ oculos</column>
+            <column name="Type"></column>
+            <column name="nome_produto">DEF EURO CLEAR</column>
+            <column name="code_produto"></column>
+            <column name="descricao_produto">CODE:DEF 200c</column>
+            <column name="quantity">0</column>
+            <column name="imagem_produto">def-euro-clear.png</column>
+            <column name="imagem_produto_baixo"></column>
+            <column name="detalhes_produto"></column>
+        </table>
+        <table name="produtos">
+            <column name="id">19</column>
+            <column name="categoria_id">4</column>
+            <column name="categoria">SAFETY EYEWEAR/ oculos</column>
+            <column name="Type"></column>
+            <column name="nome_produto">DEF HAWK CLEAR</column>
+            <column name="code_produto"></column>
+            <column name="descricao_produto">CODE:DEF 300C</column>
+            <column name="quantity">0</column>
+            <column name="imagem_produto">def-hawk-clear.png</column>
+            <column name="imagem_produto_baixo"></column>
+            <column name="detalhes_produto"></column>
+        </table>
+        <table name="produtos">
+            <column name="id">20</column>
+            <column name="categoria_id">4</column>
+            <column name="categoria">SAFETY EYEWEAR/ oculos</column>
+            <column name="Type"></column>
+            <column name="nome_produto">DEF HAWK MIRROR</column>
+            <column name="code_produto"></column>
+            <column name="descricao_produto">CODE:DEF 300 M</column>
+            <column name="quantity">0</column>
+            <column name="imagem_produto">def-hawk-mirror.png</column>
+            <column name="imagem_produto_baixo"></column>
+            <column name="detalhes_produto"></column>
+        </table>
+        <table name="produtos">
+            <column name="id">21</column>
+            <column name="categoria_id">4</column>
+            <column name="categoria">SAFETY EYEWEAR/ oculos</column>
+            <column name="Type"></column>
+            <column name="nome_produto">DEF HAWK GRAY</column>
+            <column name="code_produto"></column>
+            <column name="descricao_produto">CODE:DEF 300 G</column>
+            <column name="quantity">0</column>
+            <column name="imagem_produto">def-hawk-gray.png</column>
+            <column name="imagem_produto_baixo"></column>
+            <column name="detalhes_produto"></column>
+        </table>
+        <table name="produtos">
+            <column name="id">22</column>
+            <column name="categoria_id">5</column>
+            <column name="categoria">Gloves / Luvas</column>
+            <column name="Type">DEF NITRILE SERIES</column>
+            <column name="nome_produto">DEF:G-10FLEX</column>
+            <column name="code_produto"></column>
+            <column name="descricao_produto">Nitrile Grip rough palm FLEX and GRIP</column>
+            <column name="quantity">0</column>
+            <column name="imagem_produto">glove-1.png</column>
+            <column name="imagem_produto_baixo"></column>
+            <column name="detalhes_produto"></column>
+        </table>
+        <table name="produtos">
+            <column name="id">23</column>
+            <column name="categoria_id">5</column>
+            <column name="categoria">Gloves / Luvas</column>
+            <column name="Type">DEF NITRILE SERIES</column>
+            <column name="nome_produto">DEF:G-POLY</column>
+            <column name="code_produto"></column>
+            <column name="descricao_produto">Polytril Grip rough palm GRIP</column>
+            <column name="quantity">0</column>
+            <column name="imagem_produto">glove-2.png</column>
+            <column name="imagem_produto_baixo"></column>
+            <column name="detalhes_produto"></column>
+        </table>
+        <table name="produtos">
+            <column name="id">24</column>
+            <column name="categoria_id">5</column>
+            <column name="categoria">Gloves / Luvas</column>
+            <column name="Type">DEF NITRILE SERIES</column>
+            <column name="nome_produto">DEF:G-10XTRA</column>
+            <column name="code_produto"></column>
+            <column name="descricao_produto">Polytril Grip rough palm GRIP</column>
+            <column name="quantity">0</column>
+            <column name="imagem_produto">glove-3.png</column>
+            <column name="imagem_produto_baixo"></column>
+            <column name="detalhes_produto"></column>
+        </table>
+        <table name="produtos">
+            <column name="id">25</column>
+            <column name="categoria_id">5</column>
+            <column name="categoria">Gloves / Luvas</column>
+            <column name="Type">DEF NITRILE SERIES</column>
+            <column name="nome_produto">DEF:G-CUTFL</column>
+            <column name="code_produto"></column>
+            <column name="descricao_produto">Nitrile Grip rough palm CUT LEVEL 5 and GRIP</column>
+            <column name="quantity">0</column>
+            <column name="imagem_produto">glove-4.png</column>
+            <column name="imagem_produto_baixo"></column>
+            <column name="detalhes_produto"></column>
+        </table>
+        <table name="produtos">
+            <column name="id">26</column>
+            <column name="categoria_id">5</column>
+            <column name="categoria">Gloves / Luvas</column>
+            <column name="Type">DEF PU SERIES</column>
+            <column name="nome_produto">DEF:G-CUTP</column>
+            <column name="code_produto"></column>
+            <column name="descricao_produto">PU Coated - Rough palm CUT LEVEL 5 and GRIP</column>
+            <column name="quantity">0</column>
+            <column name="imagem_produto">glove-5.png</column>
+            <column name="imagem_produto_baixo"></column>
+            <column name="detalhes_produto"></column>
+        </table>
+        <table name="produtos">
+            <column name="id">27</column>
+            <column name="categoria_id">5</column>
+            <column name="categoria">Gloves / Luvas</column>
+            <column name="Type">DEF NITRILE SERIES</column>
+            <column name="nome_produto">DEF:LA146G</column>
+            <column name="code_produto"></column>
+            <column name="descricao_produto">Green Nitrile, flock lined 46cm</column>
+            <column name="quantity">0</column>
+            <column name="imagem_produto">glove-6.png</column>
+            <column name="imagem_produto_baixo"></column>
+            <column name="detalhes_produto"></column>
+        </table>
+        <table name="produtos">
+            <column name="id">28</column>
+            <column name="categoria_id">5</column>
+            <column name="categoria">Gloves / Luvas</column>
+            <column name="Type">DEF NITRILE SERIES</column>
+            <column name="nome_produto">DEF:LA142G</column>
+            <column name="code_produto"></column>
+            <column name="descricao_produto">DEF:LA142G</column>
+            <column name="quantity">0</column>
+            <column name="imagem_produto">glove-7.png</column>
+            <column name="imagem_produto_baixo"></column>
+            <column name="detalhes_produto"></column>
+        </table>
+        <table name="produtos">
+            <column name="id">29</column>
+            <column name="categoria_id">5</column>
+            <column name="categoria"></column>
+            <column name="Type">DEF NITRILE SERIES</column>
+            <column name="nome_produto">DEF:G-NITBL</column>
+            <column name="code_produto"></column>
+            <column name="descricao_produto">Five (5) pack gloves</column>
+            <column name="quantity">0</column>
+            <column name="imagem_produto">glove-8.png</column>
+            <column name="imagem_produto_baixo"></column>
+            <column name="detalhes_produto"></column>
+        </table>
+        <table name="produtos">
+            <column name="id">30</column>
+            <column name="categoria_id">5</column>
+            <column name="categoria"></column>
+            <column name="Type">DEF LATEX SERIES</column>
+            <column name="nome_produto">DEF:G-MGHI</column>
+            <column name="code_produto"></column>
+            <column name="descricao_produto">Latex Grip rough palm FLEX and GRIP</column>
+            <column name="quantity">0</column>
+            <column name="imagem_produto">glove-9.png</column>
+            <column name="imagem_produto_baixo"></column>
+            <column name="detalhes_produto"></column>
+        </table>
+        <table name="produtos">
+            <column name="id">31</column>
+            <column name="categoria_id">5</column>
+            <column name="categoria"></column>
+            <column name="Type">DEF LATEX SERIES</column>
+            <column name="nome_produto">DEF:G-10GRIP</column>
+            <column name="code_produto"></column>
+            <column name="descricao_produto">Latex Grip rough palm FLEX and GRIP</column>
+            <column name="quantity">0</column>
+            <column name="imagem_produto">glove-10.png</column>
+            <column name="imagem_produto_baixo"></column>
+            <column name="detalhes_produto"></column>
+        </table>
+        <table name="produtos">
+            <column name="id">32</column>
+            <column name="categoria_id">5</column>
+            <column name="categoria"></column>
+            <column name="Type">DEF PVC SERIES</column>
+            <column name="nome_produto">DEF:G-PVC-KW</column>
+            <column name="code_produto"></column>
+            <column name="descricao_produto">PVC Glove - Knit wrist</column>
+            <column name="quantity">0</column>
+            <column name="imagem_produto">glove-11.png</column>
+            <column name="imagem_produto_baixo"></column>
+            <column name="detalhes_produto"></column>
+        </table>
+        <table name="produtos">
+            <column name="id">33</column>
+            <column name="categoria_id">5</column>
+            <column name="categoria"></column>
+            <column name="Type">DEF PVC SERIES</column>
+            <column name="nome_produto">DEF:G-PVC-27</column>
+            <column name="code_produto"></column>
+            <column name="descricao_produto">PVC Glove - open cuff 27cm</column>
+            <column name="quantity">0</column>
+            <column name="imagem_produto">glove-12.png</column>
+            <column name="imagem_produto_baixo"></column>
+            <column name="detalhes_produto"></column>
+        </table>
+        <table name="produtos">
+            <column name="id">34</column>
+            <column name="categoria_id">5</column>
+            <column name="categoria"></column>
+            <column name="Type">DEF PVC SERIES</column>
+            <column name="nome_produto">DEF:G-PVC-35</column>
+            <column name="code_produto"></column>
+            <column name="descricao_produto">PVC glove - open cuff 35cm</column>
+            <column name="quantity">0</column>
+            <column name="imagem_produto">glove-13.png</column>
+            <column name="imagem_produto_baixo"></column>
+            <column name="detalhes_produto"></column>
+        </table>
+        <table name="produtos">
+            <column name="id">35</column>
+            <column name="categoria_id">5</column>
+            <column name="categoria"></column>
+            <column name="Type">DEF PVC SERIES</column>
+            <column name="nome_produto">DEF:G-PVC-60</column>
+            <column name="code_produto"></column>
+            <column name="descricao_produto">PVC Glove with elasticated attachment - 60cm</column>
+            <column name="quantity">0</column>
+            <column name="imagem_produto">glove-14.png</column>
+            <column name="imagem_produto_baixo"></column>
+            <column name="detalhes_produto"></column>
+        </table>
+        <table name="produtos">
+            <column name="id">36</column>
+            <column name="categoria_id">6</column>
+            <column name="categoria"></column>
+            <column name="Type"></column>
+            <column name="nome_produto">DEFCAP-AZUL</column>
+            <column name="code_produto"></column>
+            <column name="descricao_produto">EN8122012</column>
+            <column name="quantity">0</column>
+            <column name="imagem_produto">11.png</column>
+            <column name="imagem_produto_baixo"></column>
+            <column name="detalhes_produto">- The cap is designed to absorb impact energy by partial, not always
+visible, destruction of its structure;
+- The cap which has been struck with significant force should be
+replaced;
+- The cap should be protected from contact with solvents, acids and
+chemicals, open flame and hot metal splinters;
+- The usage period of the cap is 5 years starting from the date of
+production. After this period then cap should be physically destroyed;
+- The cap can be used at a temperature range of -10°C to +50°C.</column>
+        </table>
+        <table name="produtos">
+            <column name="id">37</column>
+            <column name="categoria_id">6</column>
+            <column name="categoria"></column>
+            <column name="Type"></column>
+            <column name="nome_produto">DEF-COV</column>
+            <column name="code_produto"></column>
+            <column name="descricao_produto">Type 5/6 Disposable
+Coverall</column>
+            <column name="quantity">0</column>
+            <column name="imagem_produto">6.png</column>
+            <column name="imagem_produto_baixo">7.png</column>
+            <column name="detalhes_produto">- Type 5 &amp; 6 microporpous protective coverall with hood;
+- SMS polypropylene base material with microporous
+film coating 6 g/m2;
+- Elasticated wrist, Legs and Waist;
+- Single use garment.</column>
+        </table>
+        <table name="produtos">
+            <column name="id">45</column>
+            <column name="categoria_id">7</column>
+            <column name="categoria">caps/ chapeus</column>
+            <column name="Type"></column>
+            <column name="nome_produto">DEFCAP</column>
+            <column name="code_produto">EN8122012</column>
+            <column name="descricao_produto">DEFCAP-VER</column>
+            <column name="quantity">0</column>
+            <column name="imagem_produto">45.png</column>
+            <column name="imagem_produto_baixo">45.png</column>
+            <column name="detalhes_produto">The industrial bump cap (baseball style bump cap) is intended
+to give protection to the wearer against the eects of striking
+the head against hard, stationary objects.</column>
+        </table>
+        <table name="produtos">
+            <column name="id">46</column>
+            <column name="categoria_id">7</column>
+            <column name="categoria">CAPS /CHAPEUS</column>
+            <column name="Type"></column>
+            <column name="nome_produto">DEFCAP</column>
+            <column name="code_produto">EN8122012</column>
+            <column name="descricao_produto">DEFCAP-AZUL</column>
+            <column name="quantity">0</column>
+            <column name="imagem_produto">42.png</column>
+            <column name="imagem_produto_baixo">42.png</column>
+            <column name="detalhes_produto">The industrial bump cap (baseball style bump cap) is intended
+to give protection to the wearer against the eects of striking
+the head against hard, stationary objects.</column>
+        </table>
+        <table name="produtos">
+            <column name="id">49</column>
+            <column name="categoria_id">7</column>
+            <column name="categoria">CAPS/CHAPEUS</column>
+            <column name="Type"></column>
+            <column name="nome_produto">DEFCAP</column>
+            <column name="code_produto">EN8122012</column>
+            <column name="descricao_produto">DEFCAP-GRN</column>
+            <column name="quantity">0</column>
+            <column name="imagem_produto">43.png</column>
+            <column name="imagem_produto_baixo">43.png</column>
+            <column name="detalhes_produto">The industrial bump cap (baseball style bump cap) is intended
+to give protection to the wearer against the eects of striking
+the head against hard, stationary objects.</column>
+        </table>
+        <table name="produtos">
+            <column name="id">50</column>
+            <column name="categoria_id">7</column>
+            <column name="categoria">caps/ chapeus</column>
+            <column name="Type"></column>
+            <column name="nome_produto">DEFCAP</column>
+            <column name="code_produto">EN8122012</column>
+            <column name="descricao_produto">DEFCAP-PRE</column>
+            <column name="quantity">0</column>
+            <column name="imagem_produto">44.png</column>
+            <column name="imagem_produto_baixo">44.png</column>
+            <column name="detalhes_produto">The industrial bump cap (baseball style bump cap) is intended
+to give protection to the wearer against the eects of striking
+the head against hard, stationary objects.</column>
+        </table>
+    </database>
+</pma_xml_export>

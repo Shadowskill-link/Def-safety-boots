@@ -68,9 +68,9 @@ $result = $conn->query($sql);
 
                         echo "<td>
                         <!-- Large modal -->
-                        <button type='button' class='btn btn-primary' id=".$user_data['orders_id']." data-toggle='modal' data-target='.bd-example-modal-lg'> Products </button>
-                        <button type='button' id='products' class='btn btn-primary' id=".$user_data['orders_id'].">Generate PDF</button>
-                        
+                        <button type='button' class='btn btn-primary clicks' id=".$user_data['orders_id']."> Products </button>
+                        <a href='export/generate_pdf.php' type='button' class='btn btn-primary print' id=".$user_data['orders_id'].">Generate PDF</a>
+                       
                         </td>";
 
                         echo "</tr>";
@@ -90,39 +90,44 @@ $result = $conn->query($sql);
 <div class="modal fade bd-example-modal-lg" tabindex="-1" id="myModal" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
+
+      <!-- Modal Header -->
       <div class="modal-header">
-        <h5 class="modal-title">Products from </h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <h4 class="modal-title">Products</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
-        <div class="modal-body">
-        
-        </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        Modal body..
+      </div>
+
+      <!-- Modal footer -->
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
       </div>
+
     </div>
   </div>
 </div>
 
 <!-- End of Main Content -->
+
+
+<?php include('footer.php'); ?>
+
 <script>
 $(document).ready(function(){
-    $('button').click(function(){
-  id_emp = $(this).attr('orders_id')
+    $('.clicks').click(function(){
+        id_emp = $(this).attr('id')
         $.ajax({url: "select.php",
         method:'post',
-        data:{emp_id:id_emp},
+        data:{emp_id: id_emp},
          success: function(result){
     $(".modal-body").html(result);
   }});
-
-
         $('#myModal').modal("show");
     })
 })
 
   </script>
-
-<?php include('footer.php'); ?>
